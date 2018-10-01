@@ -8,6 +8,7 @@ session_start();
 	<title></title>
 </head>
 <body>
+	danilo gostoso
 	<form method="POST">
 		<input type="text" name="cd" placeholder="Digite o código do usuario">
 		<input type="submit" name="botao" value="Apagar">
