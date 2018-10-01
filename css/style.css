@@ -1,0 +1,25 @@
+body{
+	background-image:url(img/background.jpg);
+}
+.titulo{
+	color:whitesmoke;
+}
+.col-md-2,.col-md-4,.col-md-6,.col-md-8,.col-md-10,.col-md-12,.col-md-5{
+
+
+}
+
+#containerlogin{
+	font-family: roboto;
+	font-size:20px;
+	background-color:whitesmoke;
+	border:solid;
+	border-radius:10px;
+	border-width:1px;
+	border-color: gray;
+	margin-left: 35%;
+	margin-top:10%;
+}
+input::placeholder {
+  color:#4db6ac;
+}

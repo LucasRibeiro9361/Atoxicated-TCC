@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Noticias</title>
+
+    <!-- Linkagem -->
+    <link href="css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="css/grayscale.min.css" rel="stylesheet">
+    <link href="css/portfolio-item.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">AToxicated</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Jogos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cadastroplayer.php">Cadastre-se</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="accordian">
+    <ul>
+    <li>
+      <div class="image_title">
+        <a href="https://www.youtube.com/channel/UCXTfDJ60DBmA932Du6B1ydg">League of legends</a>
+      </div>
+      <a href="https://www.youtube.com/channel/UCXTfDJ60DBmA932Du6B1ydg">
+        <img src="img/lol.jpg"/>
+      </a>
+    </li>
+    <li>
+
+      <div class="image_title">
+        <a href="https://www.youtube.com/channel/UCXTfDJ60DBmA932Du6B1ydg">Counter Strike global ofensive</a>
+      </div>
+      <a href="https://www.youtube.com/channel/UCXTfDJ60DBmA932Du6B1ydg">
+        <img src="img/csgo.png"/>
+      </a>
+    </li>
+
+
+
+
+  </ul>
+</div>
+<style>
+* {
+    margin: 0;
+  padding: 0;
+}
+.accordian {
+  width: 605px; height: 100%;
+  overflow: hidden;
+
+  /*Time for some styling*/
+  margin: 100px auto;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+}
+
+/*A small hack to prevent flickering on some browsers*/
+.accordian ul {
+  width: 1100px;
+  /*This will give ample space to the last item to move
+  instead of falling down/flickering during hovers.*/
+}
+
+.accordian li {
+  position: relative;
+  display: block;
+  width: 27%;
+  float: left;
+
+  border-left:0.5px solid #888;
+
+  box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+
+  /*Transitions to give animation effect*/
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  /*If you hover on the images now you should be able to
+  see the basic accordian*/
+}
+
+/*Reduce with of un-hovered elements*/
+.accordian ul:hover li {width: 40px;}
+/*Lets apply hover effects now*/
+/*The LI hover style should override the UL hover style*/
+.accordian ul li:hover {width: 640px;}
+
+
+.accordian li img {
+  display: block;
+}
+
+/*Image title styles*/
+.image_title {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 0; bottom: 0;
+width: 640px;
+
+}
+.image_title a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 20px;
+  font-size: 16px;
+}
+body{background-image: url(img/background.jpg);}
+b {
+
+color: white;
+}
+</style>
+
+      <!-- Related Projects Row -->
+    <center><h3 class="my-4"><b>Outras noticias<b></h3></center>
+
+      <div class="row">
+
+        <div class="col-md-4 col-sm-6 mb-2">
+          <a href="#">
+            <img class="img-fluid" src="img/kabum.jpg" alt="">
+          </a>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mb-2">
+          <a href="#">
+            <img class="img-fluid" src="img/kabum.jpg" alt="">
+          </a>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mb-2">
+          <a href="#">
+            <img class="img-fluid" src="img/kabum.jpg" alt="">
+          </a>
+        </div>
+
+      </div>
+
+
+      <div class="row">
+
+        <div class="offset-1 col-md-4 col-sm-6 mb-5">
+
+            <h3 class="my-4">Kabum é campeã</h3>
+          </a>
+        </div>
+
+        <div class="col-md-4 col-sm-6 mb-4">
+
+            <h3 class="my-3">Nova arma lançada</h3>
+          </a>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+
+            <h3 class="my-3">BattleGround no lol</h3>
+          </a>
+        </div>
+
+
+      </div>
+
+      <!-- slider -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-4 bg-black">
+      <div class="container">
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="css/vendor/jquery/jquery.min.js"></script>
+    <script src="css/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>
