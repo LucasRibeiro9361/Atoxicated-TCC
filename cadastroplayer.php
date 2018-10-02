@@ -122,13 +122,13 @@ include 'connect.php';
 				die("Connection failed: " . $conn->connect_error);
 			}
 				$sql = "INSERT INTO tb_usuario VALUES (null, '$nome', '$nick', '$senha', '$nascimento', 0,'fodasse', '$genero', 1, 1, '$email')";
-				if ($conn->query($sql) === TRUE) {
-						echo "Cadastro efetuado com sucesso";
+				if ($conn->query($sql) == TRUE) {
+						echo "<script>alert('Cadastro realizado com sucesso');</script>";
 				} else {
 						echo "Error: " . $sql . "<br>" . $conn->error;
 				}
 			}else {
-				echo "Senhas não coincidem";
+				echo "<script>alert('Senhas nao coecidem');</script>";
 			}
 		}
 
