@@ -1,5 +1,5 @@
 <?php
-    require ('steamauth/steamauth.php');  
+    require ('steamauth/steamauth.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SteamAuth Demo</title>
+    <title>Pagina de teste</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -22,17 +22,17 @@
   </head>
   <body style="background-color: #EEE;">
     <div class="container" style="margin-top: 30px; margin-bottom: 30px; padding-bottom: 10px; background-color: #FFF;">
-		<h1>SteamAuth Demo</h1>
-		<span class="small pull-left" style="padding-right: 10px;">for SteamAuth 3.2</span>
+		<h1>perfil</h1>
+		<span class="small pull-left" style="padding-right: 10px;">perfil</span>
 		<hr>
 		<?php
 if(!isset($_SESSION['steamid'])) {
-    echo "<div style='margin: 30px auto; text-align: center;'>Welcome Guest! Please log in!<br>";
+    echo "<div style='margin: 30px auto; text-align: center;'>Bem vindo!<br>";
     loginbutton();
 	echo "</div>";
 	}  else {
     include ('steamauth/userInfo2.php');
-	?>	
+	?>
 		<div style='float:left;'>
 			<a href='https://github.com/SmItH197/SteamAuthentication'>
 				<button class='btn btn-success' style='margin: 2px 3px;' type='button'>GitHub Repo</button>
@@ -57,7 +57,7 @@ if(!isset($_SESSION['steamid'])) {
 			</tr>
 			<tr>
 				<td>KD</td>
-				<td><?php $marlene = $csgostats['cs_total_kills']/$csgostats['cs_total_deaths'];  
+				<td><?php $marlene = $csgostats['cs_total_kills']/$csgostats['cs_total_deaths'];
 				echo substr ($marlene, 0, 4); ?></td>
 				<td>Relacão Abates/Mortes</td>
 			</tr>
@@ -72,7 +72,7 @@ if(!isset($_SESSION['steamid'])) {
 				$segundos = floor($total2 % 60);
 				echo $horas . "h " . $minutos . "m " . $segundos . "s ";
 					?>
-	
+
 </td>
 				<td>Horas jogadas no lixo</td>
 			</tr>
@@ -100,13 +100,12 @@ if(!isset($_SESSION['steamid'])) {
 			</tr>
 		</table>
 		<?php
-		}    
+		}
 		?>
 		<hr>
 		<div class="pull-right">
-			<i>This page is powered by <a href="http://steampowered.com">Steam</a></i>
+
 		</div>
-		<a href="https://github.com/SmItH197/SteamAuthentication">GitHub Repo</a><br>
-		Demo page by <a href="https://github.com/blackcetha" target="_blank">BlackCetha</a>
+
+	
 	</div>
-	 
