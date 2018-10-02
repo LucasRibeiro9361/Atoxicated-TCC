@@ -37,7 +37,7 @@ if (isset($login)&& isset($senha)) {
       $verifica = ("SELECT * FROM tb_usuario WHERE email ='$login' AND senha ='$senha'") or die("erro ao selecionar");
 			    $result1 = mysqli_query($conn,$verifica);
         if ($result1 ->num_rows <=0){
-          echo"<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='index.html';</script>";
+          echo"<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.html';</script>";
           die();
         }else{
           header("Location:playerhome.html");
@@ -47,7 +47,7 @@ if (isset($login)&& isset($senha)) {
 						$verifica = ("SELECT * FROM tb_usuario WHERE email ='$login' AND senha ='$senha'") or die("erro ao selecionar");
  							$result1 = mysqli_query($conn,$verifica);
 					if ($result1 ->num_rows <=0){
- 							echo"<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='index.html';</script>";
+ 							echo"<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.html';</script>";
  					die();
 				}	else{
  				header("Location:moderadorhome.html");
@@ -57,7 +57,7 @@ if (isset($login)&& isset($senha)) {
 					$verifica = ("SELECT * FROM tb_usuario WHERE email ='$login' AND senha ='$senha'") or die("erro ao selecionar");
 						$result1 = mysqli_query($conn,$verifica);
 				if ($result1 ->num_rows <=0){
-					echo"<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='index.html';</script>";
+					echo"<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.html';</script>";
 				die();
 				}else{
 					header("Location:adminhome.html");
@@ -65,7 +65,7 @@ if (isset($login)&& isset($senha)) {
 			}
     }
     // Arruma bug de não redirecionar para a index quando o login estiver errado.
-		echo"<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='index.html';</script>";
+		echo"<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.html';</script>";
 ?>
 <footer>
 </footer>
