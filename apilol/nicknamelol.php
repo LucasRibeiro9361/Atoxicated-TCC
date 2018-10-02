@@ -27,12 +27,11 @@
 		</form>
 		</div>
 <?php
-include ('config.php');
+
 if (isset($_POST['nicknamelol'])){
 
+header('location: demo.php');
 
-$oi = $_POST['nicknamelol'];
-$_SESSION['lolname'] = $oi;
 
 }
 

@@ -121,7 +121,7 @@ include 'connect.php';
 			if ($conn->connect_error) {
 				die("Connection failed: " . $conn->connect_error);
 			}
-				$sql = "INSERT INTO tb_usuario VALUES (null, '$nome', '$nick', '$senha', '$nascimento', 0,'fodasse', '$genero', 1, 1, '$email')";
+				$sql = "INSERT INTO tb_usuario VALUES (null, '$nome', '$nick', '$senha', '$nascimento', 0,null, '$genero', 1, 1, '$email')";
 				if ($conn->query($sql) == TRUE) {
 						echo "<script>alert('Cadastro realizado com sucesso');</script>";
 				} else {

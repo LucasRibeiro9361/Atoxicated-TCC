@@ -25,7 +25,10 @@
 
 
 <?php
-include ('nicknamelol.php');
+
+include ('config.php');
+$oi = $_POST['nicknamelol'];
+$_SESSION['lolname'] = $oi;
 if(!isset($_SESSION['lolname'])) {
     echo "<html><div style='margin: 30px auto; text-align: center;'> Você ainda não nos deu seu nome de usuário!<br>
 		<button><a href='nicknamelol.php'>Acessar outra página</button>";
@@ -79,6 +82,7 @@ $lolprofile['lol_rank1'] = $_SESSION['profilelol_rank1'];
 
 				<td><b>ELO</b></td>
 				<td><?=$lolprofile['lol_rank'].$lolprofile['lol_rank1']?></td>
+        <td><a class="btn waves-effect waves-light" href="nicknamelol.php"><center>Voltar</center></a></td>
 			</tr>
 				</tr>
 		</table>
