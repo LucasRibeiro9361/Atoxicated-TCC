@@ -27,17 +27,17 @@
 <?php
 
 include ('config.php');
-$oi = $_POST['nicknamelol'];
-$_SESSION['lolname'] = $oi;
+$_SESSION['lolname'] = $_POST['nicknamelol'];
 if(!isset($_SESSION['lolname'])) {
     echo "<html><div style='margin: 30px auto; text-align: center;'> Você ainda não nos deu seu nome de usuário!<br>
 		<button><a href='nicknamelol.php'>Acessar outra página</button>";
 	}  else {
 
-$url2 = file_get_contents("https://br1.api.riotgames.com/lol/league/v3/positions/by-summoner/".$_SESSION['profilelol_id']."?api_key=RGAPI-388448da-2767-4841-a3cb-d3da94038b83");
-  $url = file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/".$_SESSION['lolname']."?api_key=RGAPI-388448da-2767-4841-a3cb-d3da94038b83");
+
+  $url = file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/".$_SESSION['lolname']."?api_key=RGAPI-674aac08-7ea8-454a-90e8-8af1fc275e15");
 	$url1 = "https://avatar.leagueoflegends.com/br/".$_SESSION['lolname'].".png";
-		$content = json_decode($url, true);
+$url2 = file_get_contents("https://br1.api.riotgames.com/lol/league/v3/positions/by-summoner/".$_SESSION['profilelol_id']./*quando cadastrar os dados no banco dar select no id, e deixar um botao de refresh*/"?api_key=RGAPI-674aac08-7ea8-454a-90e8-8af1fc275e15");
+  	$content = json_decode($url, true);
     $content2 = json_decode($url2, true);
 	$_SESSION['profilelol_name'] = $content['name'];
 	$_SESSION['profilelol_id'] = $content['id'];
@@ -52,8 +52,6 @@ $lolprofile['lol_rank'] = $_SESSION['profilelol_rank'];
 $lolprofile['lol_rank1'] = $_SESSION['profilelol_rank1'];
 
 ?>
-
-
 
 		<br>
 		<br>
@@ -77,15 +75,17 @@ $lolprofile['lol_rank1'] = $_SESSION['profilelol_rank1'];
 
 				<td><b>Icone de perfil</b></td>
 				<td><img style="width: 100px; height: 100px" src="<?=$url1?>"></td>
+        <td><a class="btn waves-effect waves-light" href="demo.php"><center>refresh</center></a></td>
 			</tr>
       <tr>
 
 				<td><b>ELO</b></td>
-				<td><?=$lolprofile['lol_rank'].$lolprofile['lol_rank1']?></td>
+				<td><?=$lolprofile['lol_rank']. " ".$lolprofile['lol_rank1']?></td>
         <td><a class="btn waves-effect waves-light" href="nicknamelol.php"><center>Voltar</center></a></td>
+
 			</tr>
 				</tr>
 		</table>
 		<?php
-		}
+    }
 		?>

@@ -29,7 +29,7 @@
 <?php
 
 if (isset($_POST['nicknamelol'])){
-
+$_SESSION['lolname'] = $_POST['nicknamelol'];
 header('location: demo.php');
 
 
