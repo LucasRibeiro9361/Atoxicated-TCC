@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html>
 <head>
@@ -17,7 +20,7 @@
 			<div class="col-md-5" id="containerlogin">
 			<div class="row">
 				<div class="col-md-12">
-					<h4><center>player home</center></h4>
+					<a href="cadastroperfillol.php"<h4><center><?php echo $_SESSION["cdusuario"];?></center></h4>
 				</div>
 			</div>
 			</div>

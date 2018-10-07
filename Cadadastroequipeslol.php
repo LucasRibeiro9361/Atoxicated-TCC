@@ -10,7 +10,7 @@
 		Objetivo:<select name="objetivo">
 		  <option value="equipe profissional">Equipe profissional</option>
 		  <option value="casual">Casual</option>
-		  <option value="ranqueada">Ranked</option>
+		  <option value="ranqueada">Ranqueada</option>
 		</select><br>
 		Estado:<select name="estado">
 			<option value="Todos">Todos</option>
@@ -28,7 +28,8 @@
 			<option value="MS">MS</option>
 			<option value="MG">MG</option>
 			<option value="PA">PA</option>
-			<option value="PB">PR</option>
+			<option value="PB">PB</option>
+			<option value="PR">PR</option>
 			<option value="PE">PE</option>
 			<option value="PI">PI</option>
 			<option value="RJ">RJ</option>

@@ -10,7 +10,7 @@ background-color:black;
 }
 </style>
 <?php
-
+session_start();
 // conexao
 $conn = new mysqli("localhost", "root", "usbw", "db_atoxicated");
 // checa conexao
@@ -33,37 +33,43 @@ if (mysqli_num_rows($result) > 0) {
  echo $senha;
  echo $cargo . '<br>';
 if (isset($login)&& isset($senha)) {
-             if($cargo == '1'){
-      $verifica = ("SELECT * FROM tb_usuario WHERE email ='$login' AND senha ='$senha'") or die("erro ao selecionar");
-			    $result1 = mysqli_query($conn,$verifica);
-        if ($result1 ->num_rows <=0){
-          echo"<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.html';</script>";
-          die();
-        }else{
-          header("Location:playerhome.html");
-        }
-		}
+          if($cargo == '1'){
+            $sql = "SELECT * FROM tb_usuario WHERE email ='$login' AND senha ='$senha'";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+              while($row = $result->fetch_assoc()) {
+                $_SESSION["cdusuario"]= $row['cd_usuario'];
+                header("Location:playerhome.php");
+              }
+            } else {
+              echo "<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.html';</script>";
+            }
+}
 					if($cargo == '2'){
-						$verifica = ("SELECT * FROM tb_usuario WHERE email ='$login' AND senha ='$senha'") or die("erro ao selecionar");
- 							$result1 = mysqli_query($conn,$verifica);
-					if ($result1 ->num_rows <=0){
- 							echo"<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.html';</script>";
- 					die();
-				}	else{
- 				header("Location:moderadorhome.html");
+            $sql = "SELECT * FROM tb_usuario WHERE email ='$login' AND senha ='$senha'";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+              while($row = $result->fetch_assoc()) {
+                $_SESSION["cdusuario"]= $row['cd_usuario'];
+                header("Location:moderadorhome.php");
+              }
+            } else {
+              echo "<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.html';</script>";
+            }
 }
 }
 				if($cargo == '3'){
-					$verifica = ("SELECT * FROM tb_usuario WHERE email ='$login' AND senha ='$senha'") or die("erro ao selecionar");
-						$result1 = mysqli_query($conn,$verifica);
-				if ($result1 ->num_rows <=0){
-					echo"<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.html';</script>";
-				die();
-				}else{
-					header("Location:adminhome.html");
-				}
+          $sql = "SELECT * FROM tb_usuario WHERE email ='$login' AND senha ='$senha'";
+          $result = $conn->query($sql);
+          if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+              $_SESSION["cdusuario"]= $row['cd_usuario'];
+              header("Location:adminhome.php");
+            }
+          } else {
+            echo "<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.html';</script>";
+          }
 			}
-    }
     // Arruma bug de não redirecionar para a index quando o login estiver errado.
 		echo"<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.html';</script>";
 ?>
