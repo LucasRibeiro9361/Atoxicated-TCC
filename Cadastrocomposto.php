@@ -24,7 +24,7 @@
     </form>
     <?php
     if (isset($_POST['enviar'])) {
-      include 'conectar.php';
+      include 'connect.php';
       //Recebendo Dados
         $nome = $_POST['nome'];
         $nick = $_POST['nick'];
