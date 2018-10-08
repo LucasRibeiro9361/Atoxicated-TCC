@@ -28,7 +28,8 @@
 			<option value="MS">MS</option>
 			<option value="MG">MG</option>
 			<option value="PA">PA</option>
-			<option value="PB">PR</option>
+			<option value="PB">PB</option>
+			<option value="PR">PR</option>
 			<option value="PE">PE</option>
 			<option value="PI">PI</option>
 			<option value="RJ">RJ</option>
