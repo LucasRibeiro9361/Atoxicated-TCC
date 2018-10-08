@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 08-Out-2018 às 01:22
+-- Data de Criação: 08-Out-2018 às 04:14
 -- Versão do servidor: 5.6.13
 -- versão do PHP: 5.4.17
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `tb_campeoes` (
   PRIMARY KEY (`cd_campeoes`),
   UNIQUE KEY `campeoes` (`campeoes`),
   UNIQUE KEY `img` (`img`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=142 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=143 ;
 
 --
 -- Extraindo dados da tabela `tb_campeoes`
@@ -182,7 +182,8 @@ INSERT INTO `tb_campeoes` (`cd_campeoes`, `campeoes`, `img`) VALUES
 (138, 'Ziggs', 'img/campeoes/Ziggs.png'),
 (139, 'Zilean', 'img/campeoes/Zilean.png'),
 (140, 'Zoe', 'img/campeoes/Zoe.png'),
-(141, 'Zyra', 'img/campeoes/Zyra.png');
+(141, 'Zyra', 'img/campeoes/Zyra.png'),
+(142, 'Nenhum', 'img/campeoes/nenhum.png');
 
 -- --------------------------------------------------------
 
@@ -209,27 +210,29 @@ CREATE TABLE IF NOT EXISTS `tb_comentario` (
 
 CREATE TABLE IF NOT EXISTS `tb_conviteequipeusuario` (
   `cd_convite` int(11) NOT NULL AUTO_INCREMENT,
-  `id_usuario` int(11) NOT NULL,
   `id_equipelol` int(11) DEFAULT NULL,
   `id_equipecs` int(11) DEFAULT NULL,
   `mensagem` varchar(100) NOT NULL,
   `status` int(11) NOT NULL,
   `id_lanelol` int(11) NOT NULL,
   `id_funcaocs` int(11) DEFAULT NULL,
+  `id_jogadorlol` int(11) DEFAULT NULL,
+  `id_jogadorcs` int(11) DEFAULT NULL,
   PRIMARY KEY (`cd_convite`),
-  KEY `id_usuario` (`id_usuario`),
   KEY `id_equipecs` (`id_equipecs`),
   KEY `id_equipelol` (`id_equipelol`),
   KEY `id_lanelol` (`id_lanelol`),
-  KEY `id_funcaocs` (`id_funcaocs`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  KEY `id_funcaocs` (`id_funcaocs`),
+  KEY `id_jogadorlol` (`id_jogadorlol`),
+  KEY `id_jogadorcs` (`id_jogadorcs`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Extraindo dados da tabela `tb_conviteequipeusuario`
 --
 
-INSERT INTO `tb_conviteequipeusuario` (`cd_convite`, `id_usuario`, `id_equipelol`, `id_equipecs`, `mensagem`, `status`, `id_lanelol`, `id_funcaocs`) VALUES
-(1, 1, 1, NULL, 'queremos você na equipe', 0, 1, NULL);
+INSERT INTO `tb_conviteequipeusuario` (`cd_convite`, `id_equipelol`, `id_equipecs`, `mensagem`, `status`, `id_lanelol`, `id_funcaocs`, `id_jogadorlol`, `id_jogadorcs`) VALUES
+(3, 1, NULL, 'queremos vc na equipe', 1, 2, NULL, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -239,19 +242,21 @@ INSERT INTO `tb_conviteequipeusuario` (`cd_convite`, `id_usuario`, `id_equipelol
 
 CREATE TABLE IF NOT EXISTS `tb_conviteusuarioequipe` (
   `cd_convite` int(11) NOT NULL AUTO_INCREMENT,
-  `id_usuario` int(11) NOT NULL,
   `id_equipelol` int(11) DEFAULT NULL,
   `id_equipecs` int(11) DEFAULT NULL,
   `mensagem` varchar(100) NOT NULL,
   `status` int(11) NOT NULL,
   `id_lanelol` int(11) NOT NULL,
   `id_funcaocs` int(11) DEFAULT NULL,
+  `id_jogadorlol` int(11) DEFAULT NULL,
+  `id_jogadorcs` int(11) DEFAULT NULL,
   PRIMARY KEY (`cd_convite`),
-  KEY `id_usuario` (`id_usuario`),
   KEY `id_equipecs` (`id_equipecs`),
   KEY `id_equipelol` (`id_equipelol`),
   KEY `id_lanelol` (`id_lanelol`),
-  KEY `id_funcaocs` (`id_funcaocs`)
+  KEY `id_funcaocs` (`id_funcaocs`),
+  KEY `id_jogadorcs` (`id_jogadorcs`),
+  KEY `id_jogadorlol` (`id_jogadorlol`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -361,32 +366,32 @@ CREATE TABLE IF NOT EXISTS `tb_equipelol` (
   `estado` varchar(10) DEFAULT NULL,
   `id_elominimo` int(11) NOT NULL,
   `id_elomaximo` int(11) NOT NULL,
-  `id_topo` int(11) DEFAULT NULL,
-  `id_selva` int(11) DEFAULT NULL,
-  `id_meio` int(11) DEFAULT NULL,
-  `id_atirador` int(11) DEFAULT NULL,
-  `id_suporte` int(11) DEFAULT NULL,
   `id_reserva1` int(11) DEFAULT NULL,
   `id_reserva2` int(11) DEFAULT NULL,
+  `id_Topo` int(11) DEFAULT NULL,
+  `id_Selva` int(11) DEFAULT NULL,
+  `id_Meio` int(11) DEFAULT NULL,
+  `id_Atirador` int(11) DEFAULT NULL,
+  `id_Suporte` int(11) DEFAULT NULL,
   PRIMARY KEY (`cd_equipelol`),
   UNIQUE KEY `nome` (`nome`),
-  KEY `id_topo` (`id_topo`),
-  KEY `id_selva` (`id_selva`),
-  KEY `id_meio` (`id_meio`),
-  KEY `id_atirador` (`id_atirador`),
-  KEY `id_suporte` (`id_suporte`),
   KEY `id_elominimo` (`id_elominimo`),
   KEY `id_elomaximo` (`id_elomaximo`),
   KEY `reserva1` (`id_reserva1`),
-  KEY `reserva2` (`id_reserva2`)
+  KEY `reserva2` (`id_reserva2`),
+  KEY `id_Topo` (`id_Topo`),
+  KEY `id_Selva` (`id_Selva`),
+  KEY `id_Meio` (`id_Meio`),
+  KEY `id_Atirador` (`id_Atirador`),
+  KEY `id_Suporte` (`id_Suporte`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Extraindo dados da tabela `tb_equipelol`
 --
 
-INSERT INTO `tb_equipelol` (`cd_equipelol`, `nome`, `descricao`, `objetivo`, `estado`, `id_elominimo`, `id_elomaximo`, `id_topo`, `id_selva`, `id_meio`, `id_atirador`, `id_suporte`, `id_reserva1`, `id_reserva2`) VALUES
-(1, 'atoxic', 'sad', 'ranqueada', 'SP', 2, 4, 1, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `tb_equipelol` (`cd_equipelol`, `nome`, `descricao`, `objetivo`, `estado`, `id_elominimo`, `id_elomaximo`, `id_reserva1`, `id_reserva2`, `id_Topo`, `id_Selva`, `id_Meio`, `id_Atirador`, `id_Suporte`) VALUES
+(1, 'atoxic', 'sad', 'ranqueada', 'SP', 2, 4, NULL, NULL, NULL, 1, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -537,14 +542,14 @@ CREATE TABLE IF NOT EXISTS `tb_perfillol` (
   KEY `campeao3` (`campeao3`),
   KEY `campeao4` (`campeao4`),
   KEY `campeao5` (`campeao5`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
 
 --
 -- Extraindo dados da tabela `tb_perfillol`
 --
 
 INSERT INTO `tb_perfillol` (`cd_perfillol`, `nick`, `objetivo`, `estado`, `campeao1`, `campeao2`, `campeao3`, `campeao4`, `campeao5`, `id_elolol`, `id_lane1lol`, `id_lane2lol`, `id_usuario`, `id_equipelol`, `idlol`) VALUES
-(1, 'dan', 'ranqueada', 'SP', 2, 3, NULL, NULL, NULL, 2, 2, 4, 1, NULL, NULL);
+(1, 'dan', 'ranqueada', 'SP', 2, 3, NULL, NULL, NULL, 2, 2, 4, 1, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -567,14 +572,15 @@ CREATE TABLE IF NOT EXISTS `tb_usuario` (
   PRIMARY KEY (`cd_usuario`),
   UNIQUE KEY `nick` (`nick`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Extraindo dados da tabela `tb_usuario`
 --
 
 INSERT INTO `tb_usuario` (`cd_usuario`, `usuario`, `nick`, `senha`, `nascimento`, `reputação`, `sobre`, `genero`, `cargo`, `stats`, `email`) VALUES
-(1, 'oi', 'sad', '123', '0000-00-00', 1, 'sas', 'm', 1, 1, 'd@d.com');
+(1, 'oi', 'sad', '123', '0000-00-00', 1, 'sas', 'm', 1, 1, 'd@d.com'),
+(2, 'nome', 'nick', '123', '0000-00-00', 1, 'oi', 'f', 1, 1, 'd@e.com');
 
 --
 -- Constraints for dumped tables
@@ -591,21 +597,25 @@ ALTER TABLE `tb_comentario`
 -- Limitadores para a tabela `tb_conviteequipeusuario`
 --
 ALTER TABLE `tb_conviteequipeusuario`
-  ADD CONSTRAINT `tb_conviteequipeusuario_ibfk_5` FOREIGN KEY (`id_funcaocs`) REFERENCES `tb_funcaocs` (`cd_funcaocs`),
-  ADD CONSTRAINT `tb_conviteequipeusuario_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `tb_usuario` (`cd_usuario`),
+  ADD CONSTRAINT `tb_conviteequipeusuario_ibfk_8` FOREIGN KEY (`id_jogadorcs`) REFERENCES `tb_perfilcs` (`cd_perfilcs`),
   ADD CONSTRAINT `tb_conviteequipeusuario_ibfk_2` FOREIGN KEY (`id_equipecs`) REFERENCES `tb_equipecs` (`cd_equipecs`),
   ADD CONSTRAINT `tb_conviteequipeusuario_ibfk_3` FOREIGN KEY (`id_equipelol`) REFERENCES `tb_equipelol` (`cd_equipelol`),
-  ADD CONSTRAINT `tb_conviteequipeusuario_ibfk_4` FOREIGN KEY (`id_lanelol`) REFERENCES `tb_lanelol` (`cd_lanelol`);
+  ADD CONSTRAINT `tb_conviteequipeusuario_ibfk_4` FOREIGN KEY (`id_lanelol`) REFERENCES `tb_lanelol` (`cd_lanelol`),
+  ADD CONSTRAINT `tb_conviteequipeusuario_ibfk_5` FOREIGN KEY (`id_funcaocs`) REFERENCES `tb_funcaocs` (`cd_funcaocs`),
+  ADD CONSTRAINT `tb_conviteequipeusuario_ibfk_6` FOREIGN KEY (`id_funcaocs`) REFERENCES `tb_funcaocs` (`cd_funcaocs`),
+  ADD CONSTRAINT `tb_conviteequipeusuario_ibfk_7` FOREIGN KEY (`id_jogadorlol`) REFERENCES `tb_perfillol` (`cd_perfillol`);
 
 --
 -- Limitadores para a tabela `tb_conviteusuarioequipe`
 --
 ALTER TABLE `tb_conviteusuarioequipe`
-  ADD CONSTRAINT `tb_conviteusuarioequipe_ibfk_5` FOREIGN KEY (`id_funcaocs`) REFERENCES `tb_funcaocs` (`cd_funcaocs`),
-  ADD CONSTRAINT `tb_conviteusuarioequipe_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `tb_usuario` (`cd_usuario`),
   ADD CONSTRAINT `tb_conviteusuarioequipe_ibfk_2` FOREIGN KEY (`id_equipecs`) REFERENCES `tb_equipecs` (`cd_equipecs`),
   ADD CONSTRAINT `tb_conviteusuarioequipe_ibfk_3` FOREIGN KEY (`id_equipelol`) REFERENCES `tb_equipelol` (`cd_equipelol`),
-  ADD CONSTRAINT `tb_conviteusuarioequipe_ibfk_4` FOREIGN KEY (`id_lanelol`) REFERENCES `tb_lanelol` (`cd_lanelol`);
+  ADD CONSTRAINT `tb_conviteusuarioequipe_ibfk_4` FOREIGN KEY (`id_lanelol`) REFERENCES `tb_lanelol` (`cd_lanelol`),
+  ADD CONSTRAINT `tb_conviteusuarioequipe_ibfk_5` FOREIGN KEY (`id_funcaocs`) REFERENCES `tb_funcaocs` (`cd_funcaocs`),
+  ADD CONSTRAINT `tb_conviteusuarioequipe_ibfk_6` FOREIGN KEY (`id_jogadorcs`) REFERENCES `tb_perfilcs` (`cd_perfilcs`),
+  ADD CONSTRAINT `tb_conviteusuarioequipe_ibfk_7` FOREIGN KEY (`id_jogadorlol`) REFERENCES `tb_perfillol` (`cd_perfillol`),
+  ADD CONSTRAINT `tb_conviteusuarioequipe_ibfk_8` FOREIGN KEY (`id_jogadorlol`) REFERENCES `tb_perfillol` (`cd_perfillol`);
 
 --
 -- Limitadores para a tabela `tb_denuncia`
@@ -629,11 +639,12 @@ ALTER TABLE `tb_equipecs`
 -- Limitadores para a tabela `tb_equipelol`
 --
 ALTER TABLE `tb_equipelol`
-  ADD CONSTRAINT `tb_equipelol_ibfk_1` FOREIGN KEY (`id_topo`) REFERENCES `tb_usuario` (`cd_usuario`),
-  ADD CONSTRAINT `tb_equipelol_ibfk_2` FOREIGN KEY (`id_selva`) REFERENCES `tb_usuario` (`cd_usuario`),
-  ADD CONSTRAINT `tb_equipelol_ibfk_3` FOREIGN KEY (`id_meio`) REFERENCES `tb_usuario` (`cd_usuario`),
-  ADD CONSTRAINT `tb_equipelol_ibfk_4` FOREIGN KEY (`id_atirador`) REFERENCES `tb_usuario` (`cd_usuario`),
-  ADD CONSTRAINT `tb_equipelol_ibfk_5` FOREIGN KEY (`id_suporte`) REFERENCES `tb_usuario` (`cd_usuario`),
+  ADD CONSTRAINT `tb_equipelol_ibfk_15` FOREIGN KEY (`id_Suporte`) REFERENCES `tb_perfillol` (`cd_perfillol`),
+  ADD CONSTRAINT `tb_equipelol_ibfk_10` FOREIGN KEY (`id_Topo`) REFERENCES `tb_perfillol` (`cd_perfillol`),
+  ADD CONSTRAINT `tb_equipelol_ibfk_11` FOREIGN KEY (`id_Selva`) REFERENCES `tb_perfillol` (`cd_perfillol`),
+  ADD CONSTRAINT `tb_equipelol_ibfk_12` FOREIGN KEY (`id_Meio`) REFERENCES `tb_perfillol` (`cd_perfillol`),
+  ADD CONSTRAINT `tb_equipelol_ibfk_13` FOREIGN KEY (`id_Atirador`) REFERENCES `tb_perfillol` (`cd_perfillol`),
+  ADD CONSTRAINT `tb_equipelol_ibfk_14` FOREIGN KEY (`id_Suporte`) REFERENCES `tb_perfillol` (`cd_perfillol`),
   ADD CONSTRAINT `tb_equipelol_ibfk_6` FOREIGN KEY (`id_elominimo`) REFERENCES `tb_elolol` (`cd_elolol`),
   ADD CONSTRAINT `tb_equipelol_ibfk_7` FOREIGN KEY (`id_elomaximo`) REFERENCES `tb_elolol` (`cd_elolol`),
   ADD CONSTRAINT `tb_equipelol_ibfk_8` FOREIGN KEY (`id_reserva1`) REFERENCES `tb_perfillol` (`cd_perfillol`),
