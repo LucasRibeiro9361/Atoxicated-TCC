@@ -13,8 +13,8 @@ session_start();
       Voce procura parceiros para:
       <select name="objetivo">
         <option value="lazer">Lazer</option>
-        <option value="lazer">Ranqueada</option>
-        <option value="lazer">Campeonato</option>
+        <option value="ranqueada">Ranqueada</option>
+        <option value="campeonato">Campeonato</option>
       </select><br>
       De que estado voce é:
       <select name="estado">
@@ -785,6 +785,7 @@ session_start();
     </select><br>
     <input type="submit" name="ENVIAR">
     <?php
+include 'connect.php';
     $nick=$_POST['nick'];
     $objetivo=$_POST['objetivo'];
     $estado=$_POST['estado'];
@@ -797,6 +798,19 @@ session_start();
     $lane1=$_POST['lane1'];
     $lane2=$_POST['lane2'];
     $usuario=$_SESSION["cdusuario"];
+    $_SESSION['lolname']=$nick;
+
+    $url = file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/".$_SESSION['lolname']."?api_key=RGAPI-674aac08-7ea8-454a-90e8-8af1fc275e15");
+    $content = json_decode($url, true);
+  	$_SESSION['profilelol_id'] = $content['id'];
+    $idlol = $_SESSION['profilelol_id'];
+
+    $sql = "INSERT INTO `tb_perfillol`(`cd_perfillol`, `nick`, `objetivo`, `estado`, `campeao1`, `campeao2`, `campeao3`, `campeao4`, `campeao5`, `id_elolol`, `id_lane1lol`, `id_lane2lol`, `id_usuario`, `id_equipelol`, `idlol`) VALUES ('','$nick','$objetivo','$estado','$camp1','$camp2','$camp3','$camp4','$camp5','teste','$lane1','$lane2','$usuario',null,'$idlol')";
+    if ($conn->query($sql) === TRUE) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
     ?>
     </form>
   </body>
