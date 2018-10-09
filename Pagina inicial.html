@@ -22,7 +22,7 @@
   <body id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg bg-light navbar-light fixed-top" id="mainNuvem">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">Início</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,9 +44,9 @@
         </div>
       </div>
     </nav><br></br>
-<div class="borda_texto">
-    <center><h1 class="my-4 "><b>Escolha um dos jogos<b></h1></center>
-    </div>
+
+    <center><h1 class="my-4"><b>Escolha um dos jogos<b></h1></center>
+
 <!-- corpo da pagina -->
 <div class="container-fluid">
   <div class="row">
@@ -111,19 +111,23 @@ transition:all 0.3s ease;
       opacity:1;
       box-shadow: 20px,purple;
 }
+.mainNuvem{
+  color:black !important;
+  opacity:1.0 !important;
+  font-family: arial !important;
+}
 body{
 
-  background-image: url(img/games.jpg), linear-gradient(to bottom, rgba(22, 22, 22, 0.1) 0%, rgba(22, 22, 22, 0.5) 75%, #161616 100%);
+  background-color: #6987C9;
   background-size:cover;
   background-attachment: scroll;
 }
-.borda_texto{
-text-shadow: 0 0 0.2em #007D00, 0 0 0.2em #007D00,
-          0 0 0.2em #007D00
-}
+#quadrado{font-color:#000000 !important;}
+
 </style>
       <!-- Related Projects Row -->
-    <center><h3 class="my-4 borda_texto"><b>Outras noticias<b></h3></center>
+<div class="container-fluid bg-light" id="quadrado">
+    <center><h3><b>Outras noticias<b></h3></center>
 
 <div class="container-fluid">
       <div class="row">
@@ -153,25 +157,26 @@ text-shadow: 0 0 0.2em #007D00, 0 0 0.2em #007D00,
 
         <div class="col-md-4 col-sm-6">
 
-            <h3 class="my-4">Kabum é campeã</h3>
+            <h3>Kabum é campeã</h3>
           </a>
         </div>
 
         <div class="col-md-4 col-sm-6">
 
-            <h3 class="my-4">Nova arma lançada</h3>
+            <h3>Nova arma lançada</h3>
           </a>
         </div>
 
         <div class="col-md-4 col-sm-6">
 
-            <h3 class="my-4">BattleGround no lol</h3>
+            <h3>BattleGround no lol</h3>
           </a>
         </div>
 
 
       </div>
     </div>
+</div>
 
       <!-- slider -->
 
@@ -180,8 +185,7 @@ text-shadow: 0 0 0.2em #007D00, 0 0 0.2em #007D00,
 
     <!-- Footer -->
     <footer class="py-4 bg-black">
-      <div class="container">
-      </div>
+
       <!-- /.container -->
     </footer>
 
@@ -189,7 +193,7 @@ text-shadow: 0 0 0.2em #007D00, 0 0 0.2em #007D00,
     <script src="css/vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="css/vendor/jquery/jquery.min.js"></script>
     <script src="css/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="js/grayscale.min.js"></script>
+
 
   </body>
 
