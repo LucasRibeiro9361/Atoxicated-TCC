@@ -10,9 +10,8 @@ body{
 
 
 }
-
+/*Corpo do container de login*/
 #containerlogin{
-
 	font-family: arial;
 	font-size:20px;
 	background-color: rgba(245, 245, 245, 0.9);
@@ -31,21 +30,25 @@ input::placeholder {
 	margin-top:-60px;
 	margin-bottom:3%;
 }
+/* redimensionamneto da imagem de usuario do login*/
 #containericonlogin img{
 	width: 22%;
 	height: auto;
 }
+/*Alinhamento do incone no form de login e senha*/
 .loginform{
 	position:absolute;
-	margin-left:5px;
-	margin-top:2.5%;
-	width: 20px;
-	height:36px;
+	margin-left:1%;
+	margin-top:3%;
+	width: 2%;
+	height:4%;
 
 
 }
+/*Tamanho do input de login e padding para o icone*/
 .formulario{
 	width: 95%;
-	padding-left:6% !important;
+	padding-left:8% !important;
 	margin-bottom: 25px;
 }
+/*FIM DA PARTE DE FORMULARIOS*/
