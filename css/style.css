@@ -1,5 +1,7 @@
 body{
 	background-image:url(img/background.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 .titulo{
 	color:whitesmoke;
@@ -10,16 +12,40 @@ body{
 }
 
 #containerlogin{
-	font-family: roboto;
+
+	font-family: arial;
 	font-size:20px;
-	background-color:whitesmoke;
-	border:solid;
-	border-radius:10px;
-	border-width:1px;
-	border-color: gray;
-	margin-left: 35%;
-	margin-top:10%;
+	background-color: rgba(245, 245, 245, 0.9);
+	margin-top:20%;
+	margin-left:23%;
+	border-radius:2px;
+
+
 }
 input::placeholder {
   color:#4db6ac;
+}
+#containericonlogin{
+	width: 50px;
+	height:120px;
+	margin-top:-60px;
+	margin-bottom:3%;
+}
+#containericonlogin img{
+	width: 22%;
+	height: auto;
+}
+.loginform{
+	position:absolute;
+	margin-left:5px;
+	margin-top:2.5%;
+	width: 20px;
+	height:36px;
+
+
+}
+.formulario{
+	width: 95%;
+	padding-left:6% !important;
+	margin-bottom: 25px;
 }
