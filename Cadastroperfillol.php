@@ -794,7 +794,7 @@ include 'connect.php';
     $camp3=$_POST['camp3'];
     $camp4=$_POST['camp4'];
     $camp5=$_POST['camp5'];
-    $elo=$_POST['elo'];
+    $elo="oi";
     $lane1=$_POST['lane1'];
     $lane2=$_POST['lane2'];
     $usuario=$_SESSION["cdusuario"];
@@ -805,7 +805,7 @@ include 'connect.php';
   	$_SESSION['profilelol_id'] = $content['id'];
     $idlol = $_SESSION['profilelol_id'];
 
-    $sql = "INSERT INTO tb_perfillol values (null,'$nick','$objetivo','$estado','$camp1','$camp2','$camp3','$camp4','$camp5',2,'$lane1','$lane2','$usuario',null,'$idlol')";
+    $sql = "INSERT INTO tb_perfillol values ('2','$nick','$objetivo','$estado','$camp1','$camp2','$camp3','$camp4','$camp5',3,'$lane1','$lane2','$usuario',null,'$idlol')";
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
     } else {

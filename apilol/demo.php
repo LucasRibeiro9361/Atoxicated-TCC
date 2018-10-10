@@ -34,23 +34,32 @@ if(!isset($_SESSION['lolname'])) {
 	}  else {
 
 
-  $url = file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/".$_SESSION['lolname']."?api_key=RGAPI-674aac08-7ea8-454a-90e8-8af1fc275e15");
+  $url = file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/".$_SESSION['lolname']."?api_key=RGAPI-63038e40-40ba-4274-b69f-adec63b119e4");
 	$url1 = "https://avatar.leagueoflegends.com/br/".$_SESSION['lolname'].".png";
-$url2 = file_get_contents("https://br1.api.riotgames.com/lol/league/v3/positions/by-summoner/".$_SESSION['profilelol_id']./*quando cadastrar os dados no banco dar select no id, e deixar um botao de refresh*/"?api_key=RGAPI-674aac08-7ea8-454a-90e8-8af1fc275e15");
+$url2 = file_get_contents("https://br1.api.riotgames.com/lol/league/v3/positions/by-summoner/".$_SESSION['profilelol_id']./*quando cadastrar os dados no banco dar select no id, e deixar um botao de refresh*/"?api_key=RGAPI-63038e40-40ba-4274-b69f-adec63b119e4");
   	$content = json_decode($url, true);
     $content2 = json_decode($url2, true);
 	$_SESSION['profilelol_name'] = $content['name'];
 	$_SESSION['profilelol_id'] = $content['id'];
 	$_SESSION['profilelol_level'] = $content['summonerLevel'];
-  $_SESSION['profilelol_rank'] = $content2[0]['tier'];
-    $_SESSION['profilelol_rank1'] = $content2[0]['rank'];
+  $_SESSION['profilelol_queueType'] = $content2[0]['queueType'];
 
-$lolprofile['lol_name'] = $_SESSION['profilelol_name'];
-$lolprofile['lol_level'] = $_SESSION['profilelol_level'];
-$lolprofile['lol_id'] = $_SESSION['profilelol_id'];
-$lolprofile['lol_rank'] = $_SESSION['profilelol_rank'];
-$lolprofile['lol_rank1'] = $_SESSION['profilelol_rank1'];
+  $lolprofile['lol_name'] = $_SESSION['profilelol_name'];
+  $lolprofile['lol_level'] = $_SESSION['profilelol_level'];
+  $lolprofile['lol_id'] = $_SESSION['profilelol_id'];
+  $lolprofile['lol_queueType'] = $_SESSION['profilelol_queueType'];
 
+      if($lolprofile['lol_queueType'] == "RANKED_FLEX_SR"){
+            $_SESSION['profilelol_rank'] = $content2[1]['tier'];
+            $_SESSION['profilelol_rank1'] = $content2[1]['rank'];
+
+        }else{
+          $_SESSION['profilelol_rank'] = $content2[0]['tier'];
+          $_SESSION['profilelol_rank1'] = $content2[0]['rank'];
+        }
+
+    $lolprofile['lol_rank'] = $_SESSION['profilelol_rank'];
+    $lolprofile['lol_rank1'] = $_SESSION['profilelol_rank1'];
 ?>
 
 		<br>
