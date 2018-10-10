@@ -27,7 +27,9 @@
 <?php
 
 include ('config.php');
+if(isset($_POST['nicknamelol'])){
 $_SESSION['lolname'] = $_POST['nicknamelol'];
+}
 if(!isset($_SESSION['lolname'])) {
     echo "<html><div style='margin: 30px auto; text-align: center;'> Você ainda não nos deu seu nome de usuário!<br>
 		<button><a href='nicknamelol.php'>Acessar outra página</button>";
@@ -96,5 +98,5 @@ $url2 = file_get_contents("https://br1.api.riotgames.com/lol/league/v3/positions
 				</tr>
 		</table>
 		<?php
-    }
+  }
 		?>
