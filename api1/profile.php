@@ -1,5 +1,5 @@
 <?php
-    require ('steamauth/steamauth.php');  
+    require ('steamauth/steamauth.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +31,8 @@ if(!isset($_SESSION['steamid'])) {
 	echo "</div>";
 	}  else {
     include ('steamauth/userInfo.php');
-	?>	
+
+	?>
 		<br>
 		<br>
 		<h4 style='margin-bottom: 3px; float:left;'>Perfil:</h4>
@@ -81,11 +82,10 @@ if(!isset($_SESSION['steamid'])) {
 		</table>
 <span style='float:left;'><?php logoutbutton(); ?></span>
 		<?php
-		}    
+		}
 		?>
 		<hr>
 		<div class="pull-right">
 			<i>This page is powered by <a href="http://steampowered.com">Steam</a></i>
 		</div>
 	</div>
-
