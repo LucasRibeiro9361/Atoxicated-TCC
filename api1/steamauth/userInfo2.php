@@ -25,6 +25,7 @@ total hs = 25
 
 last match stt = 90~95
 */
+
 //insercao no banco:
 if(isset($csgostats['cs_total_kills'])){
 
