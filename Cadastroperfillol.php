@@ -800,7 +800,7 @@ include 'connect.php';
     $usuario=$_SESSION["cdusuario"];
     $_SESSION['lolname']=$nick;
 
-    $url = file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/".$_SESSION['lolname']."?api_key=RGAPI-674aac08-7ea8-454a-90e8-8af1fc275e15");
+    $url = file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/".$_SESSION['lolname']."?api_key=RGAPI-85dd1aa1-17f8-42bc-8b73-19c66afd6563");
     $content = json_decode($url, true);
   	$_SESSION['profilelol_id'] = $content['id'];
     $idlol = $_SESSION['profilelol_id'];

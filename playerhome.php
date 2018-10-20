@@ -20,7 +20,7 @@ session_start();
 			<div class="col-md-5" id="containerlogin">
 			<div class="row">
 				<div class="col-md-12">
-					<a href="cadastroperfillol.php"<h4><center><?php echo $_SESSION["cdusuario"];?></center></h4></a>
+					<a href="cadastroperfillol.php"<h4><center>cadastroperfillol</center></h4></a>
 					<a href="perfillolparticular.php"<h4><center>oi</center></a>
 				</div>
 			</div>
