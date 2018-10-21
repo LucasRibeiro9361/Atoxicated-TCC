@@ -8,7 +8,7 @@ session_start();
     <title></title>
   </head>
   <body>
-    <form method="post">
+    <form method="post" action="apilol/demo.php">
       <input type="text" name="nick" placeholder="Coloque seu nome de perfil no lol"><br>
       Voce procura parceiros para:
       <select name="objetivo">
@@ -786,6 +786,7 @@ session_start();
     <input type="submit" name="ENVIAR">
     <?php
 include 'connect.php';
+if(isset($nick)){
     $nick=$_POST['nick'];
     $objetivo=$_POST['objetivo'];
     $estado=$_POST['estado'];
@@ -794,23 +795,26 @@ include 'connect.php';
     $camp3=$_POST['camp3'];
     $camp4=$_POST['camp4'];
     $camp5=$_POST['camp5'];
-    $elo="oi";
+    $elo=null;
     $lane1=$_POST['lane1'];
     $lane2=$_POST['lane2'];
     $usuario=$_SESSION["cdusuario"];
-    $_SESSION['lolname']=$nick;
 
-    $url = file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/".$_SESSION['lolname']."?api_key=RGAPI-85dd1aa1-17f8-42bc-8b73-19c66afd6563");
+    //q q isso?
+    $nick = $_SESSION['lolname'];
+
+    $url = file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/".$_SESSION['lolname']."?api_key=RGAPI-65dc0f13-cc61-42c6-b645-628efe3dcbda");
     $content = json_decode($url, true);
   	$_SESSION['profilelol_id'] = $content['id'];
     $idlol = $_SESSION['profilelol_id'];
 
-    $sql = "INSERT INTO tb_perfillol values ('2','$nick','$objetivo','$estado','$camp1','$camp2','$camp3','$camp4','$camp5',3,'$lane1','$lane2','$usuario',null,'$idlol')";
+    $sql = "INSERT INTO tb_perfillol values ('','$nick','$objetivo','$estado','$camp1','$camp2','$camp3','$camp4','$camp5','$elo','$lane1','$lane2','$usuario',null,'$idlol')";
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+    }}
+
     ?>
     </form>
   </body>

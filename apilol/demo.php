@@ -36,9 +36,9 @@ if(!isset($_SESSION['lolname'])) {
 	}  else {
 
 
-  $url = file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/".$_SESSION['lolname']."?api_key=RGAPI-63038e40-40ba-4274-b69f-adec63b119e4");
+  $url = file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/".$_SESSION['lolname']."?api_key=RGAPI-65dc0f13-cc61-42c6-b645-628efe3dcbda");
 	$url1 = "https://avatar.leagueoflegends.com/br/".$_SESSION['lolname'].".png";
-$url2 = file_get_contents("https://br1.api.riotgames.com/lol/league/v3/positions/by-summoner/".$_SESSION['profilelol_id']./*quando cadastrar os dados no banco dar select no id, e deixar um botao de refresh*/"?api_key=RGAPI-63038e40-40ba-4274-b69f-adec63b119e4");
+$url2 = file_get_contents("https://br1.api.riotgames.com/lol/league/v3/positions/by-summoner/".$_SESSION['profilelol_id']./*quando cadastrar os dados no banco dar select no id, e deixar um botao de refresh*/"?api_key=RGAPI-65dc0f13-cc61-42c6-b645-628efe3dcbda");
   	$content = json_decode($url, true);
     $content2 = json_decode($url2, true);
 	$_SESSION['profilelol_name'] = $content['name'];
