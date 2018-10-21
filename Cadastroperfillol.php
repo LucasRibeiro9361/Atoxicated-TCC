@@ -809,7 +809,7 @@ if(isset($nick)){}else{
     $sql = "INSERT INTO tb_perfillol values ('','$nick','$objetivo','$estado','$camp1','$camp2','$camp3','$camp4','$camp5','$elo','$lane1','$lane2','$usuario',null,'$idlol')";
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
-        header('location:apilol/demo.php');
+        header("Location:demo.php");
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }}
