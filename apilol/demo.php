@@ -37,22 +37,27 @@ if(!isset($_SESSION['lolname'])) {
 	}  else {
       $id = $_SESSION['cdusuario'];
 
-    $sql = "SELECT `id_elolol` FROM `tb_perfillol` WHERE '$id'";
-    if ($conn->query($sql) === TRUE) {
-      $sql = $_SESSION['profilelol_id'];
-      echo $sql;
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+/*      $sql = "SELECT `idlol` FROM `tb_perfillol` WHERE `id_usuario` = '$id'";
+$result = $conn->query($sql);
 
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+
+    }
+} else {
+    echo "0 results";
+}
+$conn->close();
+*/
   $url = file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/".$_SESSION['lolname']."?api_key=RGAPI-c8c5fe69-b842-44ce-a7f7-2135dfbcfe5f");
 	$url1 = "https://avatar.leagueoflegends.com/br/".$_SESSION['lolname'].".png";
   $url2 = file_get_contents("https://br1.api.riotgames.com/lol/league/v3/positions/by-summoner/".$_SESSION['profilelol_id']./*quando cadastrar os dados no banco dar select no id, e deixar um botao de refresh*/"?api_key=RGAPI-c8c5fe69-b842-44ce-a7f7-2135dfbcfe5f");
-  	$content = json_decode($url, true);
+    $content = json_decode($url, true);
     $content2 = json_decode($url2, true);
 	$_SESSION['profilelol_name'] = $content['name'];
-	$_SESSION['profilelol_id'] = $content['id'];
 	$_SESSION['profilelol_level'] = $content['summonerLevel'];
+  $_SESSION['profilelol_id'] = $content['id'];
   $_SESSION['profilelol_queueType'] = $content2[0]['queueType'];
 
   $lolprofile['lol_name'] = $_SESSION['profilelol_name'];
@@ -71,6 +76,16 @@ if(!isset($_SESSION['lolname'])) {
 
     $lolprofile['lol_rank'] = $_SESSION['profilelol_rank'];
     $lolprofile['lol_rank1'] = $_SESSION['profilelol_rank1'];
+
+    $elo = $lolprofile['lol_rank']." ".$lolprofile['lol_rank1'];
+
+    $sql = "INSERT INTO tb_perfillol 'id_elolol' values '$elo'";
+    if ($conn->query($sql) === TRUE) {
+      echo $elo;
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
 ?>
 
 		<br>
