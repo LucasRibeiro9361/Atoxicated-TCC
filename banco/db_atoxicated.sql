@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 08-Out-2018 às 04:14
+-- Data de Criação: 21-Out-2018 às 21:55
 -- Versão do servidor: 5.6.13
 -- versão do PHP: 5.4.17
 
@@ -225,14 +225,7 @@ CREATE TABLE IF NOT EXISTS `tb_conviteequipeusuario` (
   KEY `id_funcaocs` (`id_funcaocs`),
   KEY `id_jogadorlol` (`id_jogadorlol`),
   KEY `id_jogadorcs` (`id_jogadorcs`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
-
---
--- Extraindo dados da tabela `tb_conviteequipeusuario`
---
-
-INSERT INTO `tb_conviteequipeusuario` (`cd_convite`, `id_equipelol`, `id_equipecs`, `mensagem`, `status`, `id_lanelol`, `id_funcaocs`, `id_jogadorlol`, `id_jogadorcs`) VALUES
-(3, 1, NULL, 'queremos vc na equipe', 1, 2, NULL, 1, NULL);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -294,21 +287,21 @@ CREATE TABLE IF NOT EXISTS `tb_elolol` (
 
 INSERT INTO `tb_elolol` (`cd_elolol`, `elo`, `apielo`) VALUES
 (1, 'sem elo', 'null'),
-(2, 'bronze V', 'bronze V'),
-(3, 'bronze IV', 'bronze IV'),
-(4, 'bronze III', 'bronze III'),
-(5, 'bronze II', 'bronze II'),
-(6, 'bronze I', 'bronze I'),
-(7, 'prata V', 'silver V'),
-(8, 'prata IV', 'silver IV'),
-(9, 'prata III', 'silver III'),
-(10, 'prata II', 'silver II'),
-(11, 'prata I', 'silver I'),
-(12, 'ouro V', 'gold V'),
-(13, 'ouro IV', 'gold IV'),
-(14, 'ouro III', 'gold III'),
-(15, 'ouro II', 'gold II'),
-(16, 'ouro I', 'gold I'),
+(2, 'bronze V', 'Bronze V'),
+(3, 'bronze IV', 'Bronze IV'),
+(4, 'bronze III', 'Bronze III'),
+(5, 'bronze II', 'Bronze II'),
+(6, 'bronze I', 'Bronze I'),
+(7, 'prata V', 'Silver V'),
+(8, 'prata IV', 'Silver IV'),
+(9, 'prata III', 'Silver III'),
+(10, 'prata II', 'Silver II'),
+(11, 'prata I', 'Silver I'),
+(12, 'ouro V', 'Gold V'),
+(13, 'ouro IV', 'Gold IV'),
+(14, 'ouro III', 'Gold III'),
+(15, 'ouro II', 'Gold II'),
+(16, 'ouro I', 'Gold I'),
 (17, 'Platina V', 'Platinum V'),
 (18, 'Platina IV', 'Platinum IV'),
 (19, 'Platina III', 'Platinum III'),
@@ -391,7 +384,7 @@ CREATE TABLE IF NOT EXISTS `tb_equipelol` (
 --
 
 INSERT INTO `tb_equipelol` (`cd_equipelol`, `nome`, `descricao`, `objetivo`, `estado`, `id_elominimo`, `id_elomaximo`, `id_reserva1`, `id_reserva2`, `id_Topo`, `id_Selva`, `id_Meio`, `id_Atirador`, `id_Suporte`) VALUES
-(1, 'atoxic', 'sad', 'ranqueada', 'SP', 2, 4, NULL, NULL, NULL, 1, NULL, NULL, NULL);
+(1, 'atoxic', 'sad', 'ranqueada', 'SP', 2, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -542,14 +535,15 @@ CREATE TABLE IF NOT EXISTS `tb_perfillol` (
   KEY `campeao3` (`campeao3`),
   KEY `campeao4` (`campeao4`),
   KEY `campeao5` (`campeao5`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Extraindo dados da tabela `tb_perfillol`
 --
 
 INSERT INTO `tb_perfillol` (`cd_perfillol`, `nick`, `objetivo`, `estado`, `campeao1`, `campeao2`, `campeao3`, `campeao4`, `campeao5`, `id_elolol`, `id_lane1lol`, `id_lane2lol`, `id_usuario`, `id_equipelol`, `idlol`) VALUES
-(1, 'dan', 'ranqueada', 'SP', 2, 3, NULL, NULL, NULL, 2, 2, 4, 1, 1, NULL);
+(2, 'danilo', 'ranqueada', 'AP', 3, 2, 2, 1, 1, 3, 2, 1, 1, NULL, 409258),
+(6, 'teste', 'lazer', 'AC', 2, 4, 142, 3, 28, 2, 2, 1, 2, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -597,13 +591,13 @@ ALTER TABLE `tb_comentario`
 -- Limitadores para a tabela `tb_conviteequipeusuario`
 --
 ALTER TABLE `tb_conviteequipeusuario`
-  ADD CONSTRAINT `tb_conviteequipeusuario_ibfk_8` FOREIGN KEY (`id_jogadorcs`) REFERENCES `tb_perfilcs` (`cd_perfilcs`),
   ADD CONSTRAINT `tb_conviteequipeusuario_ibfk_2` FOREIGN KEY (`id_equipecs`) REFERENCES `tb_equipecs` (`cd_equipecs`),
   ADD CONSTRAINT `tb_conviteequipeusuario_ibfk_3` FOREIGN KEY (`id_equipelol`) REFERENCES `tb_equipelol` (`cd_equipelol`),
   ADD CONSTRAINT `tb_conviteequipeusuario_ibfk_4` FOREIGN KEY (`id_lanelol`) REFERENCES `tb_lanelol` (`cd_lanelol`),
   ADD CONSTRAINT `tb_conviteequipeusuario_ibfk_5` FOREIGN KEY (`id_funcaocs`) REFERENCES `tb_funcaocs` (`cd_funcaocs`),
   ADD CONSTRAINT `tb_conviteequipeusuario_ibfk_6` FOREIGN KEY (`id_funcaocs`) REFERENCES `tb_funcaocs` (`cd_funcaocs`),
-  ADD CONSTRAINT `tb_conviteequipeusuario_ibfk_7` FOREIGN KEY (`id_jogadorlol`) REFERENCES `tb_perfillol` (`cd_perfillol`);
+  ADD CONSTRAINT `tb_conviteequipeusuario_ibfk_7` FOREIGN KEY (`id_jogadorlol`) REFERENCES `tb_perfillol` (`cd_perfillol`),
+  ADD CONSTRAINT `tb_conviteequipeusuario_ibfk_8` FOREIGN KEY (`id_jogadorcs`) REFERENCES `tb_perfilcs` (`cd_perfilcs`);
 
 --
 -- Limitadores para a tabela `tb_conviteusuarioequipe`
@@ -639,12 +633,12 @@ ALTER TABLE `tb_equipecs`
 -- Limitadores para a tabela `tb_equipelol`
 --
 ALTER TABLE `tb_equipelol`
-  ADD CONSTRAINT `tb_equipelol_ibfk_15` FOREIGN KEY (`id_Suporte`) REFERENCES `tb_perfillol` (`cd_perfillol`),
   ADD CONSTRAINT `tb_equipelol_ibfk_10` FOREIGN KEY (`id_Topo`) REFERENCES `tb_perfillol` (`cd_perfillol`),
   ADD CONSTRAINT `tb_equipelol_ibfk_11` FOREIGN KEY (`id_Selva`) REFERENCES `tb_perfillol` (`cd_perfillol`),
   ADD CONSTRAINT `tb_equipelol_ibfk_12` FOREIGN KEY (`id_Meio`) REFERENCES `tb_perfillol` (`cd_perfillol`),
   ADD CONSTRAINT `tb_equipelol_ibfk_13` FOREIGN KEY (`id_Atirador`) REFERENCES `tb_perfillol` (`cd_perfillol`),
   ADD CONSTRAINT `tb_equipelol_ibfk_14` FOREIGN KEY (`id_Suporte`) REFERENCES `tb_perfillol` (`cd_perfillol`),
+  ADD CONSTRAINT `tb_equipelol_ibfk_15` FOREIGN KEY (`id_Suporte`) REFERENCES `tb_perfillol` (`cd_perfillol`),
   ADD CONSTRAINT `tb_equipelol_ibfk_6` FOREIGN KEY (`id_elominimo`) REFERENCES `tb_elolol` (`cd_elolol`),
   ADD CONSTRAINT `tb_equipelol_ibfk_7` FOREIGN KEY (`id_elomaximo`) REFERENCES `tb_elolol` (`cd_elolol`),
   ADD CONSTRAINT `tb_equipelol_ibfk_8` FOREIGN KEY (`id_reserva1`) REFERENCES `tb_perfillol` (`cd_perfillol`),
