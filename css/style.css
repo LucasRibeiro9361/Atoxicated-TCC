@@ -52,3 +52,64 @@ input::placeholder {
 	margin-bottom: 25px;
 }
 /*FIM DA PARTE DE FORMULARIOS*/
+/* PAGINA INICIAL CSS */
+/*MENU NAV*/
+.menu-pika{
+	padding-right: 5%;
+	background-color:whitesmoke;
+	color:black;
+
+
+
+}
+#logo-menu{
+	padding-left:20% !important;
+	text-decoration:none;
+	color:black;
+	font-size:30px;
+
+}
+.menu-text{
+	text-decoration:none !important;
+	color:inherit;
+	font-size:20px;
+}
+
+nav ul a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: inherit;
+}
+/* FIM MENU NAV*/
+#box-menu-jogo{
+	height:40px;
+	background-color: whitesmoke;
+	width: 30%;
+	text-align: center;
+	margin-left:35%;
+	margin-top:1%;
+	margin-bottom: 1%;
+	font-family: fantasy;
+	font-size: 28px;
+	border-top: solid;
+	border-radius: 10px;
+
+}
+.img-menu-position{
+	width:50% !important;
+	height: 500px;
+
+}
+.container-image-menu{
+		margin-left:50%;
+}
+.page-footer{
+	background-color:#f0f0f0 !important;
+}
+.footer-copyright{
+	background-color:#3c3c3c !important;
+}
+.icon{
+	color:black !important;
+	font-size:20px;
+}
+/*FIM DA PAGINA INICIAL */

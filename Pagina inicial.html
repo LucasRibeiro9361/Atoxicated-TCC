@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
   <head>
 
@@ -11,110 +11,91 @@
     <title>Pagina inicial</title>
 
     <!-- Linkagem -->
-    <link href="css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <link href="css/grayscale.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  	<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+  	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  	<link rel="stylesheet" href="css/materialize/css/materialize.min.css">
+  	<link rel="stylesheet" href="css/materialize/css/materialize.css">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="css/materialize/js/materialize.js"></script>
+    <script src="css/materialize/js/materialize.min.js"></script>
 
   </head>
 
   <body id="page-top">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg bg-light navbar-light fixed-top" id="mainNuvem">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Início</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="login.html"><I>Login</I></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="cadastroplayer.php">Cadastre-se</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="">Informações</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav><br></br>
-
-    <center><h1 class="my-4"><b>Escolha um dos jogos<b></h1></center>
-
+    <!-- Menu -->
+    <!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">one</a></li>
+  <li><a href="#!">two</a></li>
+  <li><a href="#!">three</a></li>
+</ul>
+<nav>
+  <div class="nav-wrapper menu-pika">
+    <a href="#!" id="logo-menu" >aToxicated</a>
+    <ul class="right hide-on-med-and-down">
+      <li ><a class="menu-text" href="cadastroplayer.php">Cadastro</a></li>
+      <li><a class="menu-text" href="login.html">Login</a></li>
+      <!-- Dropdown acionador -->
+      <li><a  id="menu-login" class="dropdown-trigger menu-text" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right"></i></a></li>
+    </ul>
+  </div>
+</nav>
+<!--mobile -->
+<ul class="sidenav" id="mobile-demo">
+    <li><a href="sass.html">Sass</a></li>
+    <li><a href="badges.html">Components</a></li>
+    <li><a href="collapsible.html">Javascript</a></li>
+    <li><a href="mobile.html">Mobile</a></li>
+  </ul>
+<!-- fim do menu -->
+<div id="box-menu-jogo">
+  ESCOLHA UM JOGO
+</div>
 <!-- corpo da pagina -->
 <div class="container-fluid">
   <div class="row">
-    <div class="col-lg-4 offset-lg-1">
+    <div class="col-lg-4">
     <div class="accordian">
-
-
-      <div class="image_title">
-        <a href="apilol/nicknamelol.php"></a>
-      </div>
+      <div class="container-image-menu">
       <a href="apilol/nicknamelol.php">
-        <img src="img/lol.jpg" id="img1"/>
+        <img id="img-menu-position" class="img-menu" src="img/lol.jpg" id="img1"/>
       </a>
+      </div>
 
 
 </div>
 </div>
-<div class="col-lg-4 offset-lg-1">
+<div class="col-lg-4">
 <div class="accordian">
-  <div class="image_title">
-    <a href="api1/profilecsgo.php"></a>
-  </div>
+  <div class="container-image-menu">
   <a href="api1/profilecsgo.php">
-    <img src="img/csgo.png" id="img2"/>
+    <img id="img-menu-position" class="img-menu" src="img/csgo.png" />
   </a>
-
+</div>
 
 </div>
 </div>
 </div>
 </div>
 <style>
-.container-fluid{
-margin-top: 50px;
 
-}
-.my-4{color:white;
-width:100%;
-height:55px;
-background-color: rgba(0,0,0,0.5);
-}
-  #img2
-{
-
+.img-menu{
   transition:all 0.3s ease;
         opacity:0.8;
-        border-radius:20px;
 }
-#img2:hover
+.img-menu:hover
 {
 
   transition:all 0.3s ease;
-        opacity:1;
+        opacity:1 ;
+        box-shadow: 20px,purple;
 }
-#img1
-{
 
-transition:all 0.3s ease;
-      opacity:0.8;
-      border-radius:20px;
-}
-#img1:hover
-{
-
-transition:all 0.3s ease;
-      opacity:1;
-      box-shadow: 20px,purple;
-}
 .mainNuvem{
   color:black !important;
   opacity:1.0 !important;
@@ -126,76 +107,53 @@ body{
   background-size:cover;
   background-attachment: scroll;
 }
-#quadrado{font-color:#000000 !important;}
+
 
 </style>
-      <!-- Related Projects Row -->
-<div class="container-fluid bg-light" id="quadrado">
-    <center><h3><b>Outras noticias<b></h3></center>
-
-<div class="container-fluid">
-      <div class="row">
-
-        <div class="col-md-4 col-sm-6">
-          <a href="#">
-            <img class="img-fluid" src="img/kabum.jpg" alt="">
-          </a>
-        </div>
-
-        <div class="col-md-4 col-sm-6 ">
-          <a href="#">
-            <img class="img-fluid" src="img/kabum.jpg" alt="">
-          </a>
-        </div>
-
-        <div class="col-md-4 col-sm-6">
-          <a href="#">
-            <img class="img-fluid" src="img/kabum.jpg" alt="">
-          </a>
-        </div>
-
-      </div>
 
 
-      <div class="row">
-
-        <div class="col-md-4 col-sm-6">
-
-            <h3>Kabum é campeã</h3>
-          </a>
-        </div>
-
-        <div class="col-md-4 col-sm-6">
-
-            <h3>Nova arma lançada</h3>
-          </a>
-        </div>
-
-        <div class="col-md-4 col-sm-6">
-
-            <h3>BattleGround no lol</h3>
-          </a>
-        </div>
-
-
-      </div>
-    </div>
-</div>
       <!-- slider -->
 
     </div>
     <!-- /.container -->
 
     <!-- Footer -->
-    <footer class="py-4 bg-black">
-
-      <!-- /.container -->
+    <footer>
+      <footer class="page-footer">
+               <div class="container">
+                 <div class="row">
+                   <div class="col l6 s12">
+                     <h5 class="black-text">aToxicated</h5>
+                     <p class="black-text text-lighten-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tincidunt sollicitudin orci, eget interdum sem aliquet vive
+                   </div>
+                   <div class="col l4 offset-l2 s12">
+                     <h5 class="black-text">Contato</h5>
+                     <ul>
+                       <li>
+                        <i class="fas fa-phone icon"></i>
+                        <a class="black-text text-lighten-3 icon" href="#!">(13) 3427-1601</a>
+                      </li>
+                       <li>
+                         <i class="fas fa-at icon"></i>
+                         <a class="black-text text-lighten-3 icon" href="#!">atoxicatedcorporation@gmail.com</a>
+                       </li>
+                       <li>
+                         <i class="fas fa-map-marked icon"></i>
+                         <a class="black-text text-lighten-3 icon" href="#!">Av. José Batista Campos, 1431 - Cidade Anchieta, Itanhaém</a>
+                       </li>
+                     </ul>
+                   </div>
+                 </div>
+               </div>
+               <div class="footer-copyright">
+                 <div class="container">
+                 © 2018 Copyright by bucecheq studios
+                 <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                 </div>
+               </div>
+             </footer>
     </footer>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="css/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="css/vendor/jquery/jquery.min.js"></script>
-    <script src="css/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
   </body>
