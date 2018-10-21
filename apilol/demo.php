@@ -26,7 +26,8 @@
 
 <?php
 
-include ('config.php');
+include 'C:\Users\dudua\Desktop\usbw - Copia\root\Atoxicated-TCC/config.php';
+include ('C:\Users\dudua\Desktop\usbw - Copia\root\Atoxicated-TCC/connect.php');
 if(isset($_POST['nicknamelol'])){
 $_SESSION['lolname'] = $_POST['nicknamelol'];
 }
@@ -34,11 +35,19 @@ if(!isset($_SESSION['lolname'])) {
     echo "<html><div style='margin: 30px auto; text-align: center;'> Você ainda não nos deu seu nome de usuário!<br>
 		<button><a href='nicknamelol.php'>Acessar outra página</button>";
 	}  else {
+      $id = $_SESSION['cdusuario'];
 
+    $sql = "SELECT `id_elolol` FROM `tb_perfillol` WHERE '$id'";
+    if ($conn->query($sql) === TRUE) {
+      $sql = $_SESSION['profilelol_id'];
+      echo $sql;
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
 
-  $url = file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/".$_SESSION['lolname']."?api_key=RGAPI-65dc0f13-cc61-42c6-b645-628efe3dcbda");
+  $url = file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/".$_SESSION['lolname']."?api_key=RGAPI-c8c5fe69-b842-44ce-a7f7-2135dfbcfe5f");
 	$url1 = "https://avatar.leagueoflegends.com/br/".$_SESSION['lolname'].".png";
-$url2 = file_get_contents("https://br1.api.riotgames.com/lol/league/v3/positions/by-summoner/".$_SESSION['profilelol_id']./*quando cadastrar os dados no banco dar select no id, e deixar um botao de refresh*/"?api_key=RGAPI-65dc0f13-cc61-42c6-b645-628efe3dcbda");
+  $url2 = file_get_contents("https://br1.api.riotgames.com/lol/league/v3/positions/by-summoner/".$_SESSION['profilelol_id']./*quando cadastrar os dados no banco dar select no id, e deixar um botao de refresh*/"?api_key=RGAPI-c8c5fe69-b842-44ce-a7f7-2135dfbcfe5f");
   	$content = json_decode($url, true);
     $content2 = json_decode($url2, true);
 	$_SESSION['profilelol_name'] = $content['name'];
@@ -48,7 +57,7 @@ $url2 = file_get_contents("https://br1.api.riotgames.com/lol/league/v3/positions
 
   $lolprofile['lol_name'] = $_SESSION['profilelol_name'];
   $lolprofile['lol_level'] = $_SESSION['profilelol_level'];
-  $lolprofile['lol_id'] = $_SESSION['profilelol_id'];
+
   $lolprofile['lol_queueType'] = $_SESSION['profilelol_queueType'];
 
       if($lolprofile['lol_queueType'] == "RANKED_FLEX_SR"){

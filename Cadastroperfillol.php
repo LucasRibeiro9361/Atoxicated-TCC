@@ -1,5 +1,5 @@
 <?php
-session_start();
+include 'config.php';
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -345,7 +345,7 @@ session_start();
         <option value="6">Anivia</option>
         <option value="7">Annie</option>
         <option value="8">Ashe</option>
-        <option value=""="9">Aurelion</option>
+        <option value="9">Aurelion</option>
         <option value="10">Azir</option>
         <option value="11">Bardo</option>
         <option value="12">Blitzcrank</option>
@@ -801,15 +801,14 @@ if(isset($nick)){}else{
     $usuario=$_SESSION["cdusuario"];
     $_SESSION['lolname'] = $nick;
 
-    $url = file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/".$_SESSION['lolname']."?api_key=RGAPI-65dc0f13-cc61-42c6-b645-628efe3dcbda");
+    $url = file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/".$_SESSION['lolname']."?api_key=RGAPI-c8c5fe69-b842-44ce-a7f7-2135dfbcfe5f");
     $content = json_decode($url, true);
   	$_SESSION['profilelol_id'] = $content['id'];
     $idlol = $_SESSION['profilelol_id'];
 
     $sql = "INSERT INTO tb_perfillol values ('','$nick','$objetivo','$estado','$camp1','$camp2','$camp3','$camp4','$camp5','$elo','$lane1','$lane2','$usuario',null,'$idlol')";
     if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
-        header("Location:demo.php");
+      echo "<button type='button'><a href=apilol/demo.php>Cadastro realizado com sucesso! Visite seu perfil</a></button>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }}
