@@ -66,14 +66,28 @@ if(!isset($_SESSION['lolname'])) {
 
     $elo = $lolprofile['lol_rank']." ".$lolprofile['lol_rank1'];
 
-    $sql = "INSERT INTO tb_perfillol 'id_elolol' values '$elo'";
-    if ($conn->query($sql) === TRUE) {
-      echo $elo;
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-        // nao ta dando certo pq o valor do $elo ja eh o elo em si e no banco a coluna ta como int  
-    }
 
+
+//identificação do id do elo no banco
+    $sql = "SELECT `cd_elolol` FROM `tb_elolol` WHERE `apielo` = '$elo'";
+    $result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+   while($row = $result->fetch_assoc()) {
+ $elo2 = $row["cd_elolol"];
+   }
+} else {
+   echo "0 results";
+}
+
+//coloca o id pego anteriormente na tabela do perfil
+$sql = "UPDATE `tb_perfillol` SET `id_elolol`=$elo2 WHERE id_usuario = $id";
+if ($conn->query($sql) === TRUE) {
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
 ?>
 
 		<br>
