@@ -786,7 +786,7 @@ include 'config.php';
     <input type="submit" name="ENVIAR">
     <?php
 include 'connect.php';
-if(isset($nick)){}else{
+if(isset($_POST['nick'])){
     $nick=$_POST['nick'];
     $objetivo=$_POST['objetivo'];
     $estado=$_POST['estado'];

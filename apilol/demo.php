@@ -103,12 +103,6 @@ $conn->close();
 				<td><b>Nível</b></td>
 				<td><?=$lolprofile['lol_level']?></td>
 			</tr>
-      <tr>
-
-        <td><b>ID</b></td>
-        <td><?=$lolprofile['lol_id']?></td>
-      </tr>
-				<tr>
 
 				<td><b>Icone de perfil</b></td>
 				<td><img style="width: 100px; height: 100px" src="<?=$url1?>"></td>
