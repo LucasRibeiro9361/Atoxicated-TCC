@@ -6,9 +6,10 @@
   <body>
     <?php
     include 'connect.php';
+    if(isset($cdperfil)){
     $sql = "SELECT * FROM tb_conviteequipeusuario WHERE id_jogadorlol='$cdperfil' and status=0";
     $result = $conn->query($sql);
-
+$_SESSION['harison'] = $cdperfil;
     if ($result->num_rows > 0) {
         $row_cnt = mysqli_num_rows($result);
         echo "Você tem ".$row_cnt." novos convites"."<br>";
@@ -102,7 +103,7 @@
     }
     } else {
         echo "Sem convites";
-    }
+    }}
     ?>
   </body>
 </html>

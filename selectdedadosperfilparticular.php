@@ -1,5 +1,4 @@
 <?php
-session_start();
 include 'connect.php';
 $cd=$_SESSION["cdusuario"];
 $sql = "SELECT * FROM tb_perfillol WHERE id_usuario='$cd'";

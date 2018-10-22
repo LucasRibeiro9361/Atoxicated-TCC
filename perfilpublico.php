@@ -1,3 +1,6 @@
+<?php
+$cd=$_POST['cd'];
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <meta charset="utf-8"
@@ -9,8 +12,6 @@
     <?php
     session_start();
     include 'connect.php';
-    $cd=$_SESSION["cdperfil"];
-    echo "<p>".$cd."<p>";
     $sql = "SELECT * FROM tb_perfillol WHERE cd_perfillol='$cd'";
     $result = $conn->query($sql);
 

@@ -7,9 +7,11 @@
   </head>
   <body>
     <?php
+    include 'config.php';
     include 'selectdedadosperfilparticular.php';
-    echo "oi"."<br>"."<br>";
+    echo ""."<br>"."<br>";
     include 'conviteperfil.php';
+    include 'demo.php';
     ?>
   </body>
 </html>
