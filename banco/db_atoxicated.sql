@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 21-Out-2018 às 21:55
+-- Data de Criação: 22-Out-2018 às 14:54
 -- Versão do servidor: 5.6.13
 -- versão do PHP: 5.4.17
 
@@ -523,6 +523,7 @@ CREATE TABLE IF NOT EXISTS `tb_perfillol` (
   `id_usuario` int(11) NOT NULL,
   `id_equipelol` int(11) DEFAULT NULL,
   `idlol` int(11) DEFAULT NULL,
+  `reputacao` int(11) DEFAULT NULL,
   PRIMARY KEY (`cd_perfillol`),
   UNIQUE KEY `nick` (`nick`),
   UNIQUE KEY `id_usuario` (`id_usuario`),
@@ -535,15 +536,16 @@ CREATE TABLE IF NOT EXISTS `tb_perfillol` (
   KEY `campeao3` (`campeao3`),
   KEY `campeao4` (`campeao4`),
   KEY `campeao5` (`campeao5`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Extraindo dados da tabela `tb_perfillol`
 --
 
-INSERT INTO `tb_perfillol` (`cd_perfillol`, `nick`, `objetivo`, `estado`, `campeao1`, `campeao2`, `campeao3`, `campeao4`, `campeao5`, `id_elolol`, `id_lane1lol`, `id_lane2lol`, `id_usuario`, `id_equipelol`, `idlol`) VALUES
-(2, 'danilo', 'ranqueada', 'AP', 3, 2, 2, 1, 1, 3, 2, 1, 1, NULL, 409258),
-(6, 'teste', 'lazer', 'AC', 2, 4, 142, 3, 28, 2, 2, 1, 2, NULL, 0);
+INSERT INTO `tb_perfillol` (`cd_perfillol`, `nick`, `objetivo`, `estado`, `campeao1`, `campeao2`, `campeao3`, `campeao4`, `campeao5`, `id_elolol`, `id_lane1lol`, `id_lane2lol`, `id_usuario`, `id_equipelol`, `idlol`, `reputacao`) VALUES
+(2, 'danilo', 'ranqueada', 'AP', 3, 2, 2, 1, 1, 3, 2, 1, 1, NULL, 409258, 0),
+(6, 'teste', 'lazer', 'AC', 2, 4, 142, 3, 28, 2, 2, 1, 2, NULL, 0, 0),
+(9, 'dancan18', 'lazer', 'AC', 142, 142, 142, 142, 142, 12, 1, 1, 3, NULL, 25403311, 0);
 
 -- --------------------------------------------------------
 
@@ -566,7 +568,7 @@ CREATE TABLE IF NOT EXISTS `tb_usuario` (
   PRIMARY KEY (`cd_usuario`),
   UNIQUE KEY `nick` (`nick`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Extraindo dados da tabela `tb_usuario`
@@ -574,7 +576,8 @@ CREATE TABLE IF NOT EXISTS `tb_usuario` (
 
 INSERT INTO `tb_usuario` (`cd_usuario`, `usuario`, `nick`, `senha`, `nascimento`, `reputação`, `sobre`, `genero`, `cargo`, `stats`, `email`) VALUES
 (1, 'oi', 'sad', '123', '0000-00-00', 1, 'sas', 'm', 1, 1, 'd@d.com'),
-(2, 'nome', 'nick', '123', '0000-00-00', 1, 'oi', 'f', 1, 1, 'd@e.com');
+(2, 'nome', 'nick', '123', '0000-00-00', 1, 'oi', 'f', 1, 1, 'd@e.com'),
+(3, 'perereq', 'perereq', 'perereq', '2018-10-05', 0, NULL, '1', 1, 1, 'perereq');
 
 --
 -- Constraints for dumped tables
