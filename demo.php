@@ -23,11 +23,8 @@ include 'config.php';
 
 
 <?php
+/* TEM Q MUDAR TD PQ AS INFO TEM Q VIM DO BANCO EM VEZ DE VIM DA API
 include ('connect.php');
-include ('config.php');
-if(isset($_POST['nicknamelol'])){
-$_SESSION['lolname'] = $_POST['nicknamelol'];
-}
 
 $id = $_SESSION["cdusuario"];
 $sql = "SELECT `nick` FROM `tb_perfillol` WHERE `id_usuario` = '$id'";
@@ -42,12 +39,12 @@ echo "0 results";
 }
 
 if(!isset($id2)) {
-    echo "<html><div style='margin: 30px auto; text-align: center;'> Você ainda não nos deu seu nome de usuário!<br>
-		<button><a href='nicknamelol.php'>Acessar outra página</a></button>";
+    echo "<html><div style='margin: 30px auto; text-align: center;'> Você não está logado!<br>
+		<button><a href='login.php'>Logar</a></button>";
 	}  else {
 
-  $url = file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/".$_SESSION['lolname'].$_SESSION['apikeylol']);
-	$url1 = "https://avatar.leagueoflegends.com/br/".$_SESSION['lolname'].".png";
+  $url = file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/".$id2.$_SESSION['apikeylol']);
+	$url1 = "https://avatar.leagueoflegends.com/br/".$id2.".png";
     $content = json_decode($url, true);
 
 	$_SESSION['profilelol_name'] = $content['name'];
@@ -135,4 +132,4 @@ $conn->close();
 		</table>
 		<?php
   }
-		?>
+		?>*/

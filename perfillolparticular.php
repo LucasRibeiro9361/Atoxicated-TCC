@@ -1,6 +1,4 @@
-<?php
-include 'config.php';
-?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <meta charset="utf-8"
@@ -12,7 +10,7 @@ include 'config.php';
     <?php
     include 'demo.php';
     include 'selectdedadosperfilparticular.php';
-    echo ""."<br>"."<br>";
+
     include 'conviteperfil.php';
     ?>
   </body>

@@ -1,7 +1,6 @@
 <?php
 include 'config.php';
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -785,8 +784,10 @@ include 'config.php';
     </select><br>
     <input type="submit" name="ENVIAR">
     <?php
-include 'connect.php';
-if(isset($_POST['nick'])){
+    $id = $_SESSION["cdusuario"];
+    include 'connect.php';
+//dados do formulario
+  if(isset($_POST['nick'])){
     $nick=$_POST['nick'];
     $objetivo=$_POST['objetivo'];
     $estado=$_POST['estado'];
@@ -801,16 +802,73 @@ if(isset($_POST['nick'])){
     $usuario=$_SESSION["cdusuario"];
     $_SESSION['lolname'] = $nick;
 
+// dados da api
+    $imglol = "https://avatar.leagueoflegends.com/br/".$_SESSION['lolname'].".png";
     $url = file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/".$_SESSION['lolname'].$_SESSION['apikeylol']);
     $content = json_decode($url, true);
   	$_SESSION['profilelol_id'] = $content['id'];
+    $_SESSION['profilelol_name'] = $content['name'];
+    $_SESSION['profilelol_level'] = $content['summonerLevel'];
+
+    $lolprofile['lol_name'] = $_SESSION['profilelol_name'];
+    $lolprofile['lol_level'] = $_SESSION['profilelol_level'];
     $idlol = $_SESSION['profilelol_id'];
-    $sql = "INSERT INTO tb_perfillol values ('','$nick','$objetivo','$estado','$camp1','$camp2','$camp3','$camp4','$camp5','$elo','$lane1','$lane2','$usuario',null,'$idlol','0')";
-    if ($conn->query($sql) === TRUE) {
-      echo "<button type='button'><a href=perfillolparticular.php>Cadastro realizado com sucesso! Visite seu perfil</a></button>";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }}
+
+    // cadastra os dados na tabela tb_perfillol
+        $sql = "INSERT INTO tb_perfillol values ('','$nick','$objetivo','$estado','$camp1','$camp2','$camp3','$camp4','$camp5','$elo','$lane1','$lane2','$usuario',null,'$idlol','0')";
+        if ($conn->query($sql) === TRUE) {
+          echo "<button type='button'><a href=perfillolparticular.php>Cadastro realizado com sucesso! Visite seu perfil</a></button>";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }}
+
+
+//rank da api (+dados)
+    $url2 = file_get_contents("https://br1.api.riotgames.com/lol/league/v3/positions/by-summoner/".$idlol.$_SESSION['apikeylol']);
+    $content2 = json_decode($url2, true);
+    //verifica se o usuario ja tem elo
+    if($content2 == []){
+    $elo = "Não possui rank ainda!";
+    }
+    else{
+
+    $_SESSION['profilelol_queueType'] = $content2[0]['queueType'];
+
+    $lolprofile['lol_queueType'] = $_SESSION['profilelol_queueType'];
+
+        if($lolprofile['lol_queueType'] == "RANKED_FLEX_SR"){
+              $_SESSION['profilelol_rank'] = $content2[1]['tier'];
+              $_SESSION['profilelol_rank1'] = $content2[1]['rank'];
+
+          }else{
+            $_SESSION['profilelol_rank'] = $content2[0]['tier'];
+            $_SESSION['profilelol_rank1'] = $content2[0]['rank'];
+          }
+
+      $lolprofile['lol_rank'] = $_SESSION['profilelol_rank'];
+      $lolprofile['lol_rank1'] = $_SESSION['profilelol_rank1'];
+
+      $elo = $lolprofile['lol_rank']." ".$lolprofile['lol_rank1'];
+
+    //relaciona o elo que vem da api com o numero de elo do banco pq o danilo tem problema kk
+          $sql = "SELECT `cd_elolol` FROM `tb_elolol` WHERE `apielo` = '$elo'";
+          $result = $conn->query($sql);
+
+      if ($result->num_rows > 0) {
+         while($row = $result->fetch_assoc()) {
+       $elo2 = $row["cd_elolol"];
+         }
+      } else {
+         echo "0 results";
+      }
+
+      //coloca o id pego anteriormente na tabela do perfil
+      $sql = "UPDATE `tb_perfillol` SET `id_elolol`=$elo2 WHERE 'id_usuario' = $id";
+      if ($conn->query($sql) === TRUE) {
+      } else {
+          echo "Error: " . $sql . "<br>" . $conn->error;
+      }}
+
 
     ?>
     </form>

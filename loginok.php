@@ -10,7 +10,7 @@ background-color:black;
 }
 </style>
 <?php
-session_start();
+include 'config.php';
 // conexao
 $conn = new mysqli("localhost", "root", "usbw", "db_atoxicated");
 // checa conexao
@@ -42,7 +42,7 @@ if (isset($login)&& isset($senha)) {
                 $_SESSION["nick"]= $row['nick'];
                 $_SESSION["nivel"]= $cargo;
                 $_SESSION["email"]= $login;
-                header("Location:Pagina inicial.php");
+                header("Location:playerhome.php");
               }
             } else {
               echo "<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.html';</script>";

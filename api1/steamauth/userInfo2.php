@@ -26,19 +26,4 @@ total hs = 25
 last match stt = 90~95
 */
 
-//insercao no banco:
-if(isset($csgostats['cs_total_kills'])){
-
-	/*$sql = "INSERT INTO tb_perfillol values ('2','$nick','$objetivo','$estado','$camp1','$camp2','$camp3','$camp4','$camp5',3,'$lane1','$lane2','$usuario',null,'$idlol')";
-	if ($conn->query($sql) === TRUE) {
-			echo "New record created successfully";
-	} else {
-			echo "Error: " . $sql . "<br>" . $conn->error;
-	}*/
-
-
-
-
-}
-
 ?>

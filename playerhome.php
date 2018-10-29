@@ -29,6 +29,15 @@ include 'config.php';
 						echo "<a href='perfillolparticular.php'<h4><center>Perfil League of Legends</center></a>";
 				} else {echo "Você ainda não tem cadastro! <a href='Cadastroperfillol.php'> Cadastrar um perfil de League of Legends </a>";}
 }else{ echo "Você não está logado! <a href='index.html'> Início </a>";}
+
+if(isset($_SESSION["cdusuario"])){
+$id = $_SESSION["cdusuario"];
+$sql = "SELECT `id_usuario` FROM `tb_perfilcs` WHERE `id_usuario` = '$id'";
+$result = $conn->query($sql);
+	if ($result->num_rows > 0) {
+	echo "<a href='perfillolparticular.php'<h4><center>Perfil CSGO</center></a>";
+} else {echo "Você ainda não tem cadastro! <a href='api1/profilecsgo.php'> Cadastrar um perfil de CSGO </a>";}
+}else{ echo "Você não está logado! <a href='index.html'> Início </a>";}
 					?>
 
 
