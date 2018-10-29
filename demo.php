@@ -2,14 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Perfil League of Legends</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
     <style>
         .table {
             table-layout: fixed;
@@ -25,16 +20,29 @@
 
 
 <?php
+
 include ('connect.php');
+include ('config.php');
 if(isset($_POST['nicknamelol'])){
 $_SESSION['lolname'] = $_POST['nicknamelol'];
 }
 
-if(!isset($_SESSION['lolname'])) {
+$id = $_SESSION["cdusuario"];
+$sql = "SELECT `nick` FROM `tb_perfillol` WHERE `id_usuario` = '$id'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+while($row = $result->fetch_assoc()) {
+$id2 = $row["nick"];
+}
+} else {
+echo "0 results";
+}
+
+if(!isset($id2)) {
     echo "<html><div style='margin: 30px auto; text-align: center;'> Você ainda não nos deu seu nome de usuário!<br>
 		<button><a href='nicknamelol.php'>Acessar outra página</button>";
 	}  else {
-      $id = $_SESSION['cdusuario'];
 
   $url = file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/".$_SESSION['lolname']."?api_key=RGAPI-c8c5fe69-b842-44ce-a7f7-2135dfbcfe5f");
 	$url1 = "https://avatar.leagueoflegends.com/br/".$_SESSION['lolname'].".png";
@@ -81,7 +89,7 @@ if ($result->num_rows > 0) {
 }
 
 //coloca o id pego anteriormente na tabela do perfil
-$sql = "UPDATE `tb_perfillol` SET `id_elolol`=$elo2 WHERE id_usuario = $id";
+$sql = "UPDATE `tb_perfillol` SET `id_elolol`=$elo2 WHERE 'id_usuario' = $id";
 if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;

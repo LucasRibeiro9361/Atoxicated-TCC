@@ -801,12 +801,11 @@ if(isset($_POST['nick'])){
     $usuario=$_SESSION["cdusuario"];
     $_SESSION['lolname'] = $nick;
 
-    $url = file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/".$_SESSION['lolname']."?api_key=RGAPI-c8c5fe69-b842-44ce-a7f7-2135dfbcfe5f");
+    $url = file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/".$_SESSION['lolname'].$_SESSION['apikeylol']);
     $content = json_decode($url, true);
   	$_SESSION['profilelol_id'] = $content['id'];
     $idlol = $_SESSION['profilelol_id'];
-
-    $sql = "INSERT INTO tb_perfillol values ('','$nick','$objetivo','$estado','$camp1','$camp2','$camp3','$camp4','$camp5','$elo','$lane1','$lane2','$usuario',null,'$idlol','0')";
+    $sql = "INSERT INTO 'tb_perfillol' values ('','$nick','$objetivo','$estado','$camp1','$camp2','$camp3','$camp4','$camp5','$elo','$lane1','$lane2','$usuario',null,'$idlol','0')";
     if ($conn->query($sql) === TRUE) {
       echo "<button type='button'><a href=demo.php>Cadastro realizado com sucesso! Visite seu perfil</a></button>";
     } else {
