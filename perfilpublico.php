@@ -1,5 +1,6 @@
 <?php
 $cd=$_POST['cd'];
+include 'config.php';
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
