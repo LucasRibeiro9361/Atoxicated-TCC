@@ -7,11 +7,10 @@
   </head>
   <body>
     <?php
-    include 'config.php';
+    include 'demo.php';
     include 'selectdedadosperfilparticular.php';
     echo ""."<br>"."<br>";
     include 'conviteperfil.php';
-    include 'demo.php';
     ?>
   </body>
 </html>

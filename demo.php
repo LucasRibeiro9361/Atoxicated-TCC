@@ -20,7 +20,6 @@
 
 
 <?php
-
 include ('connect.php');
 include ('config.php');
 if(isset($_POST['nicknamelol'])){
@@ -41,22 +40,30 @@ echo "0 results";
 
 if(!isset($id2)) {
     echo "<html><div style='margin: 30px auto; text-align: center;'> Você ainda não nos deu seu nome de usuário!<br>
-		<button><a href='nicknamelol.php'>Acessar outra página</button>";
+		<button><a href='nicknamelol.php'>Acessar outra página</a></button>";
 	}  else {
 
-  $url = file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/".$_SESSION['lolname']."?api_key=RGAPI-c8c5fe69-b842-44ce-a7f7-2135dfbcfe5f");
+  $url = file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/".$_SESSION['lolname'].$_SESSION['apikeylol']);
 	$url1 = "https://avatar.leagueoflegends.com/br/".$_SESSION['lolname'].".png";
-    $url2 = file_get_contents("https://br1.api.riotgames.com/lol/league/v3/positions/by-summoner/".$_SESSION['profilelol_id']./*quando cadastrar os dados no banco dar select no id, e deixar um botao de refresh*/"?api_key=RGAPI-c8c5fe69-b842-44ce-a7f7-2135dfbcfe5f");
-
     $content = json_decode($url, true);
-    $content2 = json_decode($url2, true);
+
 	$_SESSION['profilelol_name'] = $content['name'];
 	$_SESSION['profilelol_level'] = $content['summonerLevel'];
   $_SESSION['profilelol_id'] = $content['id'];
-  $_SESSION['profilelol_queueType'] = $content2[0]['queueType'];
 
   $lolprofile['lol_name'] = $_SESSION['profilelol_name'];
   $lolprofile['lol_level'] = $_SESSION['profilelol_level'];
+
+  //-------------------------------------------------------------
+
+  $url2 = file_get_contents("https://br1.api.riotgames.com/lol/league/v3/positions/by-summoner/".$_SESSION['profilelol_id'].$_SESSION['apikeylol']);
+  $content2 = json_decode($url2, true);
+  if($content2 == []){
+  $elo = "Não possui Rank ainda!";
+  }
+  else{
+
+  $_SESSION['profilelol_queueType'] = $content2[0]['queueType'];
 
   $lolprofile['lol_queueType'] = $_SESSION['profilelol_queueType'];
 
@@ -73,8 +80,6 @@ if(!isset($id2)) {
     $lolprofile['lol_rank1'] = $_SESSION['profilelol_rank1'];
 
     $elo = $lolprofile['lol_rank']." ".$lolprofile['lol_rank1'];
-
-
 
 //identificação do id do elo no banco
     $sql = "SELECT `cd_elolol` FROM `tb_elolol` WHERE `apielo` = '$elo'";
@@ -93,7 +98,7 @@ $sql = "UPDATE `tb_perfillol` SET `id_elolol`=$elo2 WHERE 'id_usuario' = $id";
 if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
-}
+}}
 
 $conn->close();
 ?>
@@ -119,7 +124,7 @@ $conn->close();
       <tr>
 
 				<td><b>ELO</b></td>
-				<td><?=$lolprofile['lol_rank']. " ".$lolprofile['lol_rank1']?></td>
+				<td><?=$elo?></td>
         <td><a class="btn waves-effect waves-light" href="nicknamelol.php"><center>Voltar</center></a></td>
 
 			</tr>

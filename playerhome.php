@@ -1,5 +1,6 @@
 <?php
-session_start();
+include 'connect.php';
+include 'config.php';
 ?>
 <!doctype html>
 <html>
@@ -14,14 +15,24 @@ session_start();
 <meta charset="utf-8">
 </head>
 <body>
-	<form action="loginfunfando.php" method="post">
 <div class="container">
 		<div class="row">
 			<div class="col-md-5" id="containerlogin">
 			<div class="row">
 				<div class="col-md-12">
-					<a href="cadastroperfillol.php"<h4><center>cadastroperfillol</center></h4></a>
-					<a href="perfillolparticular.php"<h4><center>oi</center></a>
+					<?php
+					if(isset($_SESSION["cdusuario"])){
+					$id = $_SESSION["cdusuario"];
+					$sql = "SELECT `id_usuario` FROM `tb_perfillol` WHERE `id_usuario` = '$id'";
+					$result = $conn->query($sql);
+						if ($result->num_rows > 0) {
+						echo "<a href='perfillolparticular.php'<h4><center>Perfil League of Legends</center></a>";
+				} else {echo "Você ainda não tem cadastro! <a href='Cadastroperfillol.php'> Cadastrar um perfil de League of Legends </a>";}
+}else{ echo "Você não está logado! <a href='index.html'> Início </a>";}
+					?>
+
+
+
 				</div>
 			</div>
 			</div>

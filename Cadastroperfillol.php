@@ -805,9 +805,9 @@ if(isset($_POST['nick'])){
     $content = json_decode($url, true);
   	$_SESSION['profilelol_id'] = $content['id'];
     $idlol = $_SESSION['profilelol_id'];
-    $sql = "INSERT INTO 'tb_perfillol' values ('','$nick','$objetivo','$estado','$camp1','$camp2','$camp3','$camp4','$camp5','$elo','$lane1','$lane2','$usuario',null,'$idlol','0')";
+    $sql = "INSERT INTO tb_perfillol values ('','$nick','$objetivo','$estado','$camp1','$camp2','$camp3','$camp4','$camp5','$elo','$lane1','$lane2','$usuario',null,'$idlol','0')";
     if ($conn->query($sql) === TRUE) {
-      echo "<button type='button'><a href=demo.php>Cadastro realizado com sucesso! Visite seu perfil</a></button>";
+      echo "<button type='button'><a href=perfillolparticular.php>Cadastro realizado com sucesso! Visite seu perfil</a></button>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }}
