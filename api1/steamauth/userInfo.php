@@ -1,7 +1,7 @@
 <?php
 if (empty($_SESSION['steam_uptodate']) or empty($_SESSION['steam_personaname'])) {
 	require 'SteamConfig.php';
-	$url = file_get_contents("https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=".$steamauth['apikey']."&steamids=".$_SESSION['steamid']); 
+	$url = file_get_contents("https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=".$steamauth['apikey']."&steamids=".$_SESSION['steamid']);
 	$content = json_decode($url, true);
 	$_SESSION['steam_steamid'] = $content['response']['players'][0]['steamid'];
 	$_SESSION['steam_personaname'] = $content['response']['players'][0]['personaname'];
@@ -11,7 +11,7 @@ if (empty($_SESSION['steam_uptodate']) or empty($_SESSION['steam_personaname']))
 	$_SESSION['steam_avatarmedium'] = $content['response']['players'][0]['avatarmedium'];
 	$_SESSION['steam_avatarfull'] = $content['response']['players'][0]['avatarfull'];
 	$_SESSION['steam_personastate'] = $content['response']['players'][0]['personastate'];
-	if (isset($content['response']['players'][0]['realname'])) { 
+	if (isset($content['response']['players'][0]['realname'])) {
 		   $_SESSION['steam_realname'] = $content['response']['players'][0]['realname'];
 	   } else {
 		   $_SESSION['steam_realname'] = "Real name not given";
