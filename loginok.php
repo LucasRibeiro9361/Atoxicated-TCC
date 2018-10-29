@@ -45,7 +45,7 @@ if (isset($login)&& isset($senha)) {
                 header("Location:playerhome.php");
               }
             } else {
-              echo "<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.html';</script>";
+              echo "<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.php';</script>";
             }
 }
 					if($cargo == '2'){
@@ -60,7 +60,7 @@ if (isset($login)&& isset($senha)) {
                 header("Location:moderadorhome.php");
               }
             } else {
-              echo "<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.html';</script>";
+              echo "<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.php';</script>";
             }
 }
 }
@@ -76,11 +76,11 @@ if (isset($login)&& isset($senha)) {
               header("Location:adminhome.php");
             }
           } else {
-            echo "<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.html';</script>";
+            echo "<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.php';</script>";
           }
 			}
     // Arruma bug de não redirecionar para a index quando o login estiver errado.
-		echo"<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.html';</script>";
+		echo"<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.php';</script>";
 ?>
 <footer>
 </footer>

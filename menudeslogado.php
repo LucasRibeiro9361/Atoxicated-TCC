@@ -60,7 +60,7 @@
     </ul>
     <nav>
       <div class="nav-wrapper menu-pika">
-        <a href="#!" id="logo-menu" >aToxicated2</a>
+        <a href="#!" id="logo-menu" >aToxicated</a>
         <ul class="right hide-on-med-and-down">
           <li ><a class="menu-text" href="cadastroplayer.php">Cadastro</a></li>
           <li><a class="menu-text" href="login.html">Login</a></li>

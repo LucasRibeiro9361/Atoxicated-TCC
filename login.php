@@ -25,7 +25,7 @@ body{background-image: url(img/background.jpg);}
 		    <a href="#!" id="logo-menu" >aToxicated</a>
 		    <ul class="right hide-on-med-and-down">
 		      <li ><a class="menu-text" href="cadastroplayer.php">Cadastro</a></li>
-		      <li><a class="menu-text" href="login.html">Login</a></li>
+		      <li><a class="menu-text" href="login.php">Login</a></li>
 		      <!-- Dropdown acionador -->
 		      <li class="white">-------------------------</li>
 		    </ul>
