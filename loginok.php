@@ -39,7 +39,9 @@ if (isset($login)&& isset($senha)) {
             if ($result->num_rows > 0) {
               while($row = $result->fetch_assoc()) {
                 $_SESSION["cdusuario"]= $row['cd_usuario'];
-                header("Location:playerhome.php");
+                $_SESSION["nick"]= $row['nick'];
+                $_SESSION["nivel"]= $cargo;
+                header("Location:Pagina inicial.php");
               }
             } else {
               echo "<script language='javascript' type='text/javascript'>alert('Login e/ou senha incorretos');window.location.href='login.html';</script>";
@@ -51,6 +53,8 @@ if (isset($login)&& isset($senha)) {
             if ($result->num_rows > 0) {
               while($row = $result->fetch_assoc()) {
                 $_SESSION["cdusuario"]= $row['cd_usuario'];
+                $_SESSION["nick"]= $row['nick'];
+                $_SESSION["nivel"]= $cargo;
                 header("Location:moderadorhome.php");
               }
             } else {
@@ -64,6 +68,8 @@ if (isset($login)&& isset($senha)) {
           if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
               $_SESSION["cdusuario"]= $row['cd_usuario'];
+              $_SESSION["nick"]= $row['nick'];
+              $_SESSION["nivel"]= $cargo;
               header("Location:adminhome.php");
             }
           } else {

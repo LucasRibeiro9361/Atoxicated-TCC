@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -30,9 +33,37 @@
     <!-- Menu -->
     <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">one</a></li>
-  <li><a href="#!">two</a></li>
-  <li><a href="#!">three</a></li>
+  <li><a href="#!">
+  <?php
+  if (isset($_SESSION["cdusuario"])){
+  echo $_SESSION["cdusuario"];
+}
+  else{
+    echo "..";
+  }
+  ?>
+</a></li>
+  <li><a href="#!">
+    <?php
+    if (isset($_SESSION["nick"])){
+    echo $_SESSION["nick"];
+}
+    else{
+      echo "...";
+    }
+    ?>
+  </a></li>
+  <li><a href="#!">
+    <?php
+    if (isset($_SESSION["nivel"])){
+    echo $_SESSION["nivel"];
+}
+    else{
+      echo "...";
+    }
+    ?>
+  </a></li>
+  <li><a class="menu-text" href="logout.php">Logout</a></li>
 </ul>
 <nav>
   <div class="nav-wrapper menu-pika">
@@ -41,7 +72,16 @@
       <li ><a class="menu-text" href="cadastroplayer.php">Cadastro</a></li>
       <li><a class="menu-text" href="login.html">Login</a></li>
       <!-- Dropdown acionador -->
-      <li><a  id="menu-login" class="dropdown-trigger menu-text" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right"></i></a></li>
+      <li><a  id="menu-login" class="dropdown-trigger menu-text" href="#!" data-target="dropdown1">
+        <?php
+        if (isset($_SESSION["nick"])){
+        echo $_SESSION["nick"];
+}
+        else{
+          echo "deslogado";
+        }
+        ?>
+        <i class="material-icons right"></i></a></li>
     </ul>
   </div>
 </nav>
