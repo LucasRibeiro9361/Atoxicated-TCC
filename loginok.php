@@ -41,6 +41,7 @@ if (isset($login)&& isset($senha)) {
                 $_SESSION["cdusuario"]= $row['cd_usuario'];
                 $_SESSION["nick"]= $row['nick'];
                 $_SESSION["nivel"]= $cargo;
+                $_SESSION["email"]= $login;
                 header("Location:Pagina inicial.php");
               }
             } else {
@@ -55,6 +56,7 @@ if (isset($login)&& isset($senha)) {
                 $_SESSION["cdusuario"]= $row['cd_usuario'];
                 $_SESSION["nick"]= $row['nick'];
                 $_SESSION["nivel"]= $cargo;
+                $_SESSION["email"]= $login;
                 header("Location:moderadorhome.php");
               }
             } else {
@@ -70,6 +72,7 @@ if (isset($login)&& isset($senha)) {
               $_SESSION["cdusuario"]= $row['cd_usuario'];
               $_SESSION["nick"]= $row['nick'];
               $_SESSION["nivel"]= $cargo;
+              $_SESSION["email"]= $login;
               header("Location:adminhome.php");
             }
           } else {

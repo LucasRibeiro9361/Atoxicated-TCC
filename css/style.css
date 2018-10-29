@@ -79,6 +79,29 @@ nav ul a:hover {
   background-color: rgba(0, 0, 0, 0.1);
   color: inherit;
 }
+
+#iconeuser{
+	border-radius: 200px;
+	height: 10px;
+	width: 2%;
+}
+.userstats{
+	width: 20% !important;
+	height:250px;
+}
+
+#iconimg2{
+	margin-top:35% !important;
+	margin-right: 6% !important;
+}
+#containericonmenu img{
+	width: 100%;
+	height: auto;
+}
+#containertextuser{
+	padding-top:13%;
+	line-height: normal;
+}
 /* FIM MENU NAV*/
 #box-menu-jogo{
 	height:40px;
