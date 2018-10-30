@@ -17,14 +17,10 @@ include 'config.php';
     <link rel="stylesheet" type="text/css" href="css/style.css">
   	<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
   	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-  	<link rel="stylesheet" href="css/materialize/css/materialize.min.css">
-  	<link rel="stylesheet" href="css/materialize/css/materialize.css">
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/scripts.js"></script>
-    <script src="css/materialize/js/materialize.js"></script>
-    <script src="css/materialize/js/materialize.min.js"></script>
   </head>
 
   <body id="page-top">

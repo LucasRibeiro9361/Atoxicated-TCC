@@ -55,11 +55,38 @@ input::placeholder {
 /* PAGINA INICIAL CSS */
 /*MENU NAV*/
 .menu-pika{
-	padding-right: 5%;
+	width: 100%;
+	padding-right: 10%;
 	background-color:whitesmoke;
 	color:black;
+	height: 64px;
+	line-height: 64px;
 
+}
+nav{
+	width: 100%;
+	top:0;
+	left:0;
 
+l}
+nav ul{
+	float:right;
+	margin:0;
+	padding:0;
+
+}
+nav ul li{
+	float:left;
+	padding-right: :20px;
+	padding-left:20px;
+	list-style: none;
+
+}
+nav.menupika{
+	position:relative;
+	height: 100%
+}
+nav ul li a{
 
 }
 #logo-menu{
@@ -72,12 +99,7 @@ input::placeholder {
 .menu-text{
 	text-decoration:none !important;
 	color:inherit;
-	font-size:20px;
-}
-
-nav ul a:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-  color: inherit;
+	font-size:20px !important;
 }
 
 #iconeuser{
@@ -85,23 +107,57 @@ nav ul a:hover {
 	height: 10px;
 	width: 2%;
 }
-.userstats{
-	width: 20% !important;
-	height:250px;
-}
 
-#iconimg2{
-	margin-top:35% !important;
-	margin-right: 6% !important;
-}
+
+/*Imagem dentro do menu dropdown*/
 #containericonmenu img{
-	width: 100%;
+	width: 25%;
 	height: auto;
 }
+/*texto dentro das ul do menu principal*/
 #containertextuser{
-	padding-top:13%;
+	padding-top:20% !important;
 	line-height: normal;
+	padding-right:12%;
 }
+/*controla as linhas dentro do menu do usuario dropdown*/
+.line-size{
+	line-height: normal !important;
+	height: 30px !important;
+	text-align:right;
+	padding-right:20px;
+	padding-top:20px;
+
+
+}
+/*botao do dropdown*/
+.dropbtn{
+	cursor:pointer;
+	font-size:20px;
+
+}
+/*corpo do dropdown*/
+.dropdown-content1{
+		 display: none ;
+     position: absolute !important;
+     background-color: #f1f1f1 !important;
+     min-width: 12% ;
+     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2) !important;
+     z-index: 1 ;
+		  right: 0 ;
+			width: 12% !important;
+			height:280px;
+			margin-right: 5%;
+			margin-top: 3%
+}
+/*ativador do dropdown*/
+.dropdown2{
+	position: relative ;
+	display: inline-block;
+	float:right ;
+}
+/*Para fazer o dropdown aparecer*/
+.show {display: block;}
 /* FIM MENU NAV*/
 #box-menu-jogo{
 	height:40px;
@@ -115,8 +171,42 @@ nav ul a:hover {
 	font-size: 28px;
 	border-top: solid;
 	border-radius: 10px;
-
 }
+
+
+
+
+
+/*botao customizado*/
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 1% 25%;
+		height: 50px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 25px;
+    margin-top:40px;
+		margin-left:15px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.button5 {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+}
+
+.button5:hover {
+    background-color: #555555;
+    color: white;
+}
+
+
+
+
+
 .img-menu-position{
 	width:50% !important;
 	height: 500px;
