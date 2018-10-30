@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4.2
+-- version 3.4.9
 -- http://www.phpmyadmin.net
 --
--- Máquina: localhost
--- Data de Criação: 22-Out-2018 às 14:54
--- Versão do servidor: 5.6.13
--- versão do PHP: 5.4.17
+-- Servidor: localhost
+-- Tempo de Geração: 30/10/2018 às 13h18min
+-- Versão do Servidor: 5.5.20
+-- Versão do PHP: 5.3.9
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,10 +17,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de Dados: `db_atoxicated`
+-- Banco de Dados: `db_atoxicated`
 --
-CREATE DATABASE IF NOT EXISTS `db_atoxicated` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `db_atoxicated`;
 
 -- --------------------------------------------------------
 
@@ -536,7 +534,7 @@ CREATE TABLE IF NOT EXISTS `tb_perfillol` (
   KEY `campeao3` (`campeao3`),
   KEY `campeao4` (`campeao4`),
   KEY `campeao5` (`campeao5`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 --
 -- Extraindo dados da tabela `tb_perfillol`
@@ -545,7 +543,7 @@ CREATE TABLE IF NOT EXISTS `tb_perfillol` (
 INSERT INTO `tb_perfillol` (`cd_perfillol`, `nick`, `objetivo`, `estado`, `campeao1`, `campeao2`, `campeao3`, `campeao4`, `campeao5`, `id_elolol`, `id_lane1lol`, `id_lane2lol`, `id_usuario`, `id_equipelol`, `idlol`, `reputacao`) VALUES
 (2, 'danilo', 'ranqueada', 'AP', 3, 2, 2, 1, 1, 3, 2, 1, 1, NULL, 409258, 0),
 (6, 'teste', 'lazer', 'AC', 2, 4, 142, 3, 28, 2, 2, 1, 2, NULL, 0, 0),
-(9, 'dancan18', 'lazer', 'AC', 142, 142, 142, 142, 142, 12, 1, 1, 3, NULL, 25403311, 0);
+(15, 'DT TOPetista13', 'ranqueada', 'CE', 1, 96, 87, 69, 59, 2, 1, 2, 5, NULL, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -568,7 +566,7 @@ CREATE TABLE IF NOT EXISTS `tb_usuario` (
   PRIMARY KEY (`cd_usuario`),
   UNIQUE KEY `nick` (`nick`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Extraindo dados da tabela `tb_usuario`
@@ -577,21 +575,22 @@ CREATE TABLE IF NOT EXISTS `tb_usuario` (
 INSERT INTO `tb_usuario` (`cd_usuario`, `usuario`, `nick`, `senha`, `nascimento`, `reputação`, `sobre`, `genero`, `cargo`, `stats`, `email`) VALUES
 (1, 'oi', 'sad', '123', '0000-00-00', 1, 'sas', 'm', 1, 1, 'd@d.com'),
 (2, 'nome', 'nick', '123', '0000-00-00', 1, 'oi', 'f', 1, 1, 'd@e.com'),
-(3, 'perereq', 'perereq', 'perereq', '2018-10-05', 0, NULL, '1', 1, 1, 'perereq');
+(3, 'perereq', 'perereq', 'perereq', '2018-10-05', 0, NULL, '1', 1, 1, 'perereq'),
+(5, 'xec', 'xec', 'xec', '2018-10-05', 0, NULL, '1', 1, 1, 'xec');
 
 --
--- Constraints for dumped tables
+-- Restrições para as tabelas dumpadas
 --
 
 --
--- Limitadores para a tabela `tb_comentario`
+-- Restrições para a tabela `tb_comentario`
 --
 ALTER TABLE `tb_comentario`
   ADD CONSTRAINT `tb_comentario_ibfk_1` FOREIGN KEY (`id_usuario1`) REFERENCES `tb_usuario` (`cd_usuario`),
   ADD CONSTRAINT `tb_comentario_ibfk_2` FOREIGN KEY (`id_usuario2`) REFERENCES `tb_usuario` (`cd_usuario`);
 
 --
--- Limitadores para a tabela `tb_conviteequipeusuario`
+-- Restrições para a tabela `tb_conviteequipeusuario`
 --
 ALTER TABLE `tb_conviteequipeusuario`
   ADD CONSTRAINT `tb_conviteequipeusuario_ibfk_2` FOREIGN KEY (`id_equipecs`) REFERENCES `tb_equipecs` (`cd_equipecs`),
@@ -603,7 +602,7 @@ ALTER TABLE `tb_conviteequipeusuario`
   ADD CONSTRAINT `tb_conviteequipeusuario_ibfk_8` FOREIGN KEY (`id_jogadorcs`) REFERENCES `tb_perfilcs` (`cd_perfilcs`);
 
 --
--- Limitadores para a tabela `tb_conviteusuarioequipe`
+-- Restrições para a tabela `tb_conviteusuarioequipe`
 --
 ALTER TABLE `tb_conviteusuarioequipe`
   ADD CONSTRAINT `tb_conviteusuarioequipe_ibfk_2` FOREIGN KEY (`id_equipecs`) REFERENCES `tb_equipecs` (`cd_equipecs`),
@@ -615,13 +614,13 @@ ALTER TABLE `tb_conviteusuarioequipe`
   ADD CONSTRAINT `tb_conviteusuarioequipe_ibfk_8` FOREIGN KEY (`id_jogadorlol`) REFERENCES `tb_perfillol` (`cd_perfillol`);
 
 --
--- Limitadores para a tabela `tb_denuncia`
+-- Restrições para a tabela `tb_denuncia`
 --
 ALTER TABLE `tb_denuncia`
   ADD CONSTRAINT `tb_denuncia_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `tb_usuario` (`cd_usuario`);
 
 --
--- Limitadores para a tabela `tb_equipecs`
+-- Restrições para a tabela `tb_equipecs`
 --
 ALTER TABLE `tb_equipecs`
   ADD CONSTRAINT `tb_equipecs_ibfk_1` FOREIGN KEY (`id_lurker`) REFERENCES `tb_usuario` (`cd_usuario`),
@@ -633,7 +632,7 @@ ALTER TABLE `tb_equipecs`
   ADD CONSTRAINT `tb_equipecs_ibfk_7` FOREIGN KEY (`id_patentemaxima`) REFERENCES `tb_patentecs` (`cd_patente`);
 
 --
--- Limitadores para a tabela `tb_equipelol`
+-- Restrições para a tabela `tb_equipelol`
 --
 ALTER TABLE `tb_equipelol`
   ADD CONSTRAINT `tb_equipelol_ibfk_10` FOREIGN KEY (`id_Topo`) REFERENCES `tb_perfillol` (`cd_perfillol`),
@@ -648,7 +647,7 @@ ALTER TABLE `tb_equipelol`
   ADD CONSTRAINT `tb_equipelol_ibfk_9` FOREIGN KEY (`id_reserva2`) REFERENCES `tb_perfillol` (`cd_perfillol`);
 
 --
--- Limitadores para a tabela `tb_perfilcs`
+-- Restrições para a tabela `tb_perfilcs`
 --
 ALTER TABLE `tb_perfilcs`
   ADD CONSTRAINT `tb_perfilcs_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `tb_usuario` (`cd_usuario`),
@@ -658,7 +657,7 @@ ALTER TABLE `tb_perfilcs`
   ADD CONSTRAINT `tb_perfilcs_ibfk_5` FOREIGN KEY (`id_funcaocs2`) REFERENCES `tb_funcaocs` (`cd_funcaocs`);
 
 --
--- Limitadores para a tabela `tb_perfillol`
+-- Restrições para a tabela `tb_perfillol`
 --
 ALTER TABLE `tb_perfillol`
   ADD CONSTRAINT `tb_perfillol_ibfk_1` FOREIGN KEY (`id_elolol`) REFERENCES `tb_elolol` (`cd_elolol`),
