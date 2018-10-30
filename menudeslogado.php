@@ -63,7 +63,7 @@
         <a href="#!" id="logo-menu" >aToxicated</a>
         <ul class="right hide-on-med-and-down">
           <li ><a class="menu-text" href="cadastroplayer.php">Cadastro</a></li>
-          <li><a class="menu-text" href="login.html">Login</a></li>
+          <li><a class="menu-text" href="login.php">Login</a></li>
           <!-- Dropdown acionador -->
           <li><a  id="menu-login" class="dropdown-trigger menu-text" href="#!" data-target="dropdown1">
             <?php

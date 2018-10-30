@@ -827,7 +827,7 @@ include 'config.php';
     $url2 = file_get_contents("https://br1.api.riotgames.com/lol/league/v3/positions/by-summoner/".$idlol.$_SESSION['apikeylol']);
     $content2 = json_decode($url2, true);
     //verifica se o usuario ja tem elo
-    if($content2 == []){
+    if($content2 == '[]'){
     $elo = "Não possui rank ainda!";
     }
     else{

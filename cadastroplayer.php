@@ -90,7 +90,7 @@ body{background-image: url(img/background.jpg);}
 					<center>
 						<input class="btn waves-effect waves-light" type="submit" name="submit" value="Enviar">
 						<input class="btn waves-effect waves-light" type="reset" value="Reset">
-						<a class="btn waves-effect waves-light" href="pagina inicial.html"><center>Voltar</center></a>
+						<a class="btn waves-effect waves-light" href="pagina inicial.php"><center>Voltar</center></a>
 					</center>
 				</div>
 			</div>

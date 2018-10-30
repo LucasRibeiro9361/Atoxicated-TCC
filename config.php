@@ -1,4 +1,4 @@
 <?php
 session_start();
-$_SESSION['apikeylol'] = '?api_key=RGAPI-dd6ec8b1-a162-4087-8c78-328170be4263';
+$_SESSION['apikeylol'] = '?api_key=RGAPI-d6226515-6283-4c4c-9048-db8d35964d38';
 ?>
