@@ -17,8 +17,7 @@ body{
 	background-color: rgba(245, 245, 245, 0.9);
 	margin-top:20%;
 	margin-left:23%;
-	border-radius:2px;
-
+	border-radius:9px;
 
 }
 input::placeholder {
@@ -175,7 +174,8 @@ nav ul li a{
 
 
 
-
+#camp{width:20%;
+margin-left:-20px; }
 
 /*botao customizado*/
 .button {

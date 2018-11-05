@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 3.4.9
 -- http://www.phpmyadmin.net
 --
@@ -16,9 +16,10 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
+-- 
+CREATE DATABASE `db_atoxicated`;		
 --
--- Banco de Dados: `db_atoxicated`
---
+USE `db_atoxicated`;
 
 -- --------------------------------------------------------
 

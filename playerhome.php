@@ -31,14 +31,14 @@ include 'config.php';
 <body>
 
 <style>
-body{background-image: url(img/background.jpg);}
+body{background-image: url(img/bg-masthead.jpg);}
 </style>
 <div class="container">
 		<div class="row">
 			<div class="col-md-6" id="containerlogin">
 				<div class="row">
 						<div class="col-md-12" id="containericonlogin">
-							<center>	<img src="img/iconlogin.png" id="iconimg"></center>
+							<center>	<img src="img/inconlol.png" id="iconimg"></center>
 						</div>
 				</div>
 				<?php
@@ -49,12 +49,12 @@ body{background-image: url(img/background.jpg);}
 				$result = $conn->query($sql);
 					if ($result->num_rows > 0) {
 					echo "<a href='perfillolparticular.php'<h4><center>Perfil League of Legends</center></a>";
-			} else {echo "<center>Você ainda não tem cadastro! <a href='Cadastroperfillol.php'> Cadastrar um perfil de League of Legends </a></center>";}
-	}else{ echo "<center>Você não está logado! <a href='index.html'> Início </a><br><br></center>";}
+			} else {echo "<center><font face='Arial black'>Você ainda não tem cadastro!</font> <a href='Cadastroperfillol.php'> Cadastrar um perfil de League of Legends </a></center>";}
+	}else{ echo "<center><font face='Arial black'>Você não está logado!</font> <a href='index.html'> Início </a><br><br></center>";}
 	?><br><br>
 	<div class="row">
 			<div class="col-md-12" id="containericonlogin">
-				<center>	<img src="img/iconlogin.png" id="iconimg"></center>
+				<center>	<img src="img/inconcs.png" id="iconimg"></center>
 			</div>
 	</div>
 <?php
@@ -64,8 +64,8 @@ body{background-image: url(img/background.jpg);}
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
 	echo "<a href='perfillolparticular.php'<h4><center>Perfil CSGO</center></a>";
-} else {echo "<center>Você ainda não tem cadastro! <a href='api1/profilecsgo.php'> Cadastrar um perfil de CSGO </a></center>";}
-}else{ echo "<center>Você não está logado! <a href='index.html'> Início </a></center>";}
+} else {echo "<center><font face='Arial black'>Você ainda não tem cadastro!</font> <a href='api1/profilecsgo.php'> Cadastrar um perfil de CSGO </a></center>";}
+}else{ echo "<center><font face='Arial black'>Você não está logado!</font> <a href='index.html'> Início </a></center>";}
 
 				?>
 
