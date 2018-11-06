@@ -19,7 +19,7 @@ if ($result->num_rows > 0) {
       $elo=$row["id_elolol"];
       $lane1=$row["id_lane1lol"];
       $lane2=$row["id_lane2lol"];
-      $cd=$row["id_usuario"];
+      $cd1=$row["id_usuario"];
       $equipe=$row["id_equipelol"];
     }
 } else {

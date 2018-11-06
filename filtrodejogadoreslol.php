@@ -104,24 +104,51 @@ include 'config.php';
   			<option value="28">Desafiante</option>
   		</select><br>
       Lane 1
-      <select name="lane1">
+      <select name="lane">
         <option value="1">topo</option>
         <option value="2">Selva</option>
         <option value="3">Meio</option>
         <option value="4">Atirador</option>
         <option value="5">Suporte</option>
       </select><br>
-      Lane 2
-      <select name="lane2">
-        <option value="1">topo</option>
-        <option value="2">Selva</option>
-        <option value="3">Meio</option>
-        <option value="4">Atirador</option>
-        <option value="5">Suporte</option>
+      mostrar jogadores com reputacoes negativas?
+      <select name="reputacao">
+        <option value="1">Sim</option>
+        <option value="2">Não</option>
       </select><br>
+      idade <select name="idade">
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30+</option>
+      </select>
     </form>
+    <?php
+    if (isset($_POST['objetivo'])) {
+      $objetivo=$_POST['objetivo'];
+      $estado=$_POST['estado'];
+      $eminimo=$_POST['eminimo'];
+      $emaximo=$_POST['emaximo'];
+      $lane=$_POST['lane'];
+      $reputacao=$_POST['reputacao'];
+      $idade=$_POST['idade'];
+    }
+    ?>
       <?php
-      session_start();
       include "connect.php";
       $sql = "SELECT * FROM tb_perfillol";
       $result = $conn->query($sql);
