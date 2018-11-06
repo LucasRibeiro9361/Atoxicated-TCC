@@ -1,7 +1,7 @@
 body{
 	background-image:url(img/background.jpg);
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size:cover !important;
 }
 .titulo{
 	color:whitesmoke;
@@ -18,7 +18,6 @@ body{
 	margin-top:20%;
 	margin-left:23%;
 	border-radius:9px;
-
 }
 input::placeholder {
   color:#4db6ac;
@@ -174,7 +173,10 @@ nav ul li a{
 
 
 
-#camp{width:20%;
+#camp{width:30%;
+margin-left:-20px; }
+
+#camp1{width:60%;
 margin-left:-20px; }
 
 /*botao customizado*/
@@ -226,3 +228,13 @@ margin-left:-20px; }
 	font-size:20px;
 }
 /*FIM DA PAGINA INICIAL */
+
+/*container do cadastro de perfil*/
+#containerlogin1{
+	font-family: arial;
+	font-size:20px;
+	background-color: rgba(245, 245, 245, 0.9);
+	margin-top:20%;
+	margin-left:50%;
+	border-radius:9px;
+}

@@ -11,14 +11,29 @@ include 'config.php';
     <meta charset="utf-8">
     <title></title>
   </head>
+  <nav>
+    <div class="nav-wrapper menu-pika">
+      <a href="#!" id="logo-menu" >aToxicated</a>
+      <ul class="right hide-on-med-and-down">
+        <li ><a class="menu-text" href="cadastroplayer.php">Cadastro</a></li>
+        <li><a class="menu-text" href="login.php">Login</a></li>
+        <!-- Dropdown acionador -->
+        <li class="white">-------------------------</li>
+      </ul>
+    </div>
+  </nav>
   <body>
     <style>
     body{background-image: url(img/bg-masthead.jpg);}
     </style>
     <center>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6" id="containerlogin1">
     <form method="post">
+      <br>
       <div class="form-group">
-      <input type="text" name="nick" placeholder="Coloque seu nome de perfil no lol"><br>
+      <input type="text" name="nick" id="camp1" placeholder="Coloque seu nome de perfil no lol"><br>
       Voce procura parceiros para:
     </div>
     <div class="form-group">
@@ -804,6 +819,7 @@ include 'config.php';
       <option value="5">Suporte</option>
     </select></div><br>
     <input type="submit" name="ENVIAR">
+  </div>
     <?php
     $id = $_SESSION["cdusuario"];
     include 'connect.php';
