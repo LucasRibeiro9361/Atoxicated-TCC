@@ -15,6 +15,7 @@ include 'config.php';
         <option value="campeonato">Campeonato</option>
       </select><br>
       <select name="estado">
+        <option value="">Qualquer</option>
         <option value="AC">AC</option>
         <option value="AL">AL</option>
         <option value="AP">AP</option>
