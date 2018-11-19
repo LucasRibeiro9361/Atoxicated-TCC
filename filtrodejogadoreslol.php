@@ -9,13 +9,14 @@ include 'config.php';
   </head>
   <body>
     <form method="POST">
-      <select name="objetivo">
+      Objetivo<select name="objetivo">
+        <option value="">Todos</option>
         <option value="lazer">Lazer</option>
         <option value="ranqueada">Ranqueada</option>
         <option value="campeonato">Campeonato</option>
       </select><br>
-      <select name="estado">
-        <option value="">Qualquer</option>
+      Estado<select name="estado">
+        <option value="">Todos</option>
         <option value="AC">AC</option>
         <option value="AL">AL</option>
         <option value="AP">AP</option>
@@ -44,7 +45,8 @@ include 'config.php';
         <option value="SE">SE</option>
         <option value="TO">TO</option>
       </select><br>
-      Elo Minimo<select name="eminimo">
+      Elo Minimo<select name="e1">
+        <option value="">Todos</option>
   			<option value="1">SEM ELO</option>
   			<option value="2">Bronze V</option>
   			<option value="3">Bronze IV</option>
@@ -74,7 +76,8 @@ include 'config.php';
   			<option value="27">Mestre</option>
   			<option value="28">Desafiante</option>
   		</select><br>
-  		Elo Maximo<select name="emaximo">
+  		Elo Maximo<select name="e2">
+        <option value="">Todos</option>
   			<option value="1">SEM ELO</option>
   			<option value="2">Bronze V</option>
   			<option value="3">Bronze IV</option>
@@ -104,63 +107,116 @@ include 'config.php';
   			<option value="27">Mestre</option>
   			<option value="28">Desafiante</option>
   		</select><br>
-      Lane 1
-      <select name="lane">
-        <option value="1">topo</option>
+      Lanes
+      <select name="l1">
+        <option value="">Todos</option>
+        <option value="1">Topo</option>
         <option value="2">Selva</option>
         <option value="3">Meio</option>
         <option value="4">Atirador</option>
         <option value="5">Suporte</option>
       </select><br>
-      mostrar jogadores com reputacoes negativas?
-      <select name="reputacao">
-        <option value="1">Sim</option>
-        <option value="2">Não</option>
+      Lanes
+      <select name="l2">
+        <option value="">Todos</option>
+        <option value="1">Topo</option>
+        <option value="2">Selva</option>
+        <option value="3">Meio</option>
+        <option value="4">Atirador</option>
+        <option value="5">Suporte</option>
       </select><br>
-      idade <select name="idade">
-        <option value="13">13</option>
-        <option value="14">14</option>
-        <option value="15">15</option>
-        <option value="16">16</option>
-        <option value="17">17</option>
-        <option value="18">18</option>
-        <option value="19">19</option>
-        <option value="20">20</option>
-        <option value="21">21</option>
-        <option value="22">22</option>
-        <option value="23">23</option>
-        <option value="24">24</option>
-        <option value="25">25</option>
-        <option value="26">26</option>
-        <option value="27">27</option>
-        <option value="28">28</option>
-        <option value="29">29</option>
-        <option value="30">30+</option>
-      </select>
+      Mostrar apenas jogadores com boa reputação?
+      <select name="reputacao">
+        <option value="0">Não</option>
+        <option value="1">Sim</option>
+      </select><br>
+      Nivel mínimo<select name="n1">
+        <option value="">Todos</option>
+        <?php
+        for($i =1; $i < 1001; $i++){
+          echo "<option value='".$i."'>".$i."</option>";
+        }
+        ?>
+      </select><br>
+      Nivel maxímo<select name="n2">
+        <option value="">Todos</option>
+        <?php
+        for($i =1; $i < 1001; $i++){
+          echo "<option value='".$i."'>".$i."</option>";
+        }
+        ?>
+      </select><br>
+      <input type="submit" name="botao"value="Pesquisar">
     </form>
     <?php
-    if (isset($_POST['objetivo'])) {
+    if (isset($_POST['botao'])) {
       $objetivo=$_POST['objetivo'];
       $estado=$_POST['estado'];
-      $eminimo=$_POST['eminimo'];
-      $emaximo=$_POST['emaximo'];
-      $lane=$_POST['lane'];
+      $e1=$_POST['e1'];
+      $e2=$_POST['e2'];
+      $l1=$_POST['l1'];
+      $l2=$_POST['l2'];
       $reputacao=$_POST['reputacao'];
-      $idade=$_POST['idade'];
+      $n1=$_POST['n1'];
+      $n2=$_POST['n2'];
+
+    if ($objetivo ==! "") {
+      $sql1= "objetivo = '".$objetivo."'";
+    }
+    else {
+      $sql1="";
+    }
+    if ($estado ==! "") {
+      $sql2= "estado = '".$estado."'";
+    }
+    else {
+      $sql2="";
+    }
+    if ($e1 ==! "") {
+      $sql3= "id_elolol > '".$e1."'";
+    }
+    else {
+      $sql3="";
+    }
+    if ($e2 ==! "") {
+      $sql4= "id_elolol < '".$e2."'";
+    }
+    else {
+      $sql4="";
+    }
+    if ($l1 ==! "" && $l2 ==! "") {
+      $sql5= "id_lane1lol = ".$l1." or id_lane2lol = ".$l1." or id_lane1lol = ".$l2." or id_lane2lol = ".$l2;
+    }
+    elseif ($l1 ==! "" && $l2 == "") {
+      $sql5= "id_lane1lol = ".$l1." or id_lane2lol = ".$l1;
+    }
+    elseif ($l1 == "" && $l2 ==! "") {
+      $sql5= "id_lane1lol = ".$l2." or id_lane2lol = ".$l2;
+    }
+    else {
+      $sql5="";
+    }
+    if ($reputacao ==! "") {
+      $sql6= "reputacao > 0";
+    }
+    else {
+      $sql6="";
+    }
+    if ($n1 ==! "") {
+      $sql7= "idnivel > '".$n1."'";
+    }
+    else {
+      $sql7="";
+    }
+    if ($n2 ==! "") {
+      $sql8= "idnivel < '".$n2."'";
+    }
+    else {
+      $sql8="";
+    }
+    echo $sql1."<br>".$sql2."<br>".$sql3."<br>".$sql4."<br>".$sql5."<br>".$sql6."<br>".$sql7."<br>".$sql8;
     }
     ?>
-      <?php
-      include "connect.php";
-      $sql = "SELECT * FROM tb_perfillol";
-      $result = $conn->query($sql);
-      if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-          echo "<form method='POST' action='perfilpublico.php'>"."cd: ". $row["cd_perfillol"];
-          echo "<input type='hidden' value='".$row['cd_perfillol']."' name='cd'><input type='submit' name='botao' value='ir para perfil do ".$row['nick']."'></form>"."<br>";
-        }
-        } else {
-          echo "0 results";
-        }
-      ?>
+
   </body>
 </html>

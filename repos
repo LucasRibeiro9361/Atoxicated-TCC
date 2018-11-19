@@ -1,0 +1,13 @@
+<?php
+include "connect.php";
+$sql = "SELECT * FROM tb_perfillol";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+  while($row = $result->fetch_assoc()) {
+    echo "<form method='POST' action='perfilpublico.php'>"."cd: ". $row["cd_perfillol"];
+    echo "<input type='hidden' value='".$row['cd_perfillol']."' name='cd'><input type='submit' name='botao' value='ir para perfil do ".$row['nick']."'></form>"."<br>";
+  }
+  } else {
+    echo "0 results";
+  }
+?>
